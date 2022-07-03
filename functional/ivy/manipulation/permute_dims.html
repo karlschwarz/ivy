@@ -15,12 +15,13 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="stack" href="stack.html" />
-    <link rel="prev" title="expand_dims" href="expand_dims.html" /> 
+    <link rel="next" title="reshape" href="reshape.html" />
+    <link rel="prev" title="flip" href="flip.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -45,8 +46,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../extensions.html">Extensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../roadmap.html">Roadmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deep_dive.html">Deep Dive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../faq.html">FAQ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../building_the_docs.html">Building the Docs</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Functions</span></p>
 <ul class="current">
@@ -64,21 +65,21 @@
 <li class="toctree-l1"><a class="reference internal" href="../linear_algebra.html">Linear algebra</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../losses.html">Losses</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../manipulation.html">Manipulation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="concat.html">concat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expand_dims.html">expand_dims</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flip.html">flip</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">permute_dims</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reshape.html">reshape</a></li>
 <li class="toctree-l2"><a class="reference internal" href="roll.html">roll</a></li>
 <li class="toctree-l2"><a class="reference internal" href="squeeze.html">squeeze</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flip.html">flip</a></li>
-<li class="toctree-l2"><a class="reference internal" href="expand_dims.html">expand_dims</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">permute_dims</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stack.html">stack</a></li>
-<li class="toctree-l2"><a class="reference internal" href="reshape.html">reshape</a></li>
-<li class="toctree-l2"><a class="reference internal" href="concat.html">concat</a></li>
-<li class="toctree-l2"><a class="reference internal" href="split.html">split</a></li>
-<li class="toctree-l2"><a class="reference internal" href="repeat.html">repeat</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tile.html">tile</a></li>
-<li class="toctree-l2"><a class="reference internal" href="constant_pad.html">constant_pad</a></li>
-<li class="toctree-l2"><a class="reference internal" href="zero_pad.html">zero_pad</a></li>
-<li class="toctree-l2"><a class="reference internal" href="swapaxes.html">swapaxes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="clip.html">clip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="constant_pad.html">constant_pad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="repeat.html">repeat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="split.html">split</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swapaxes.html">swapaxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tile.html">tile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zero_pad.html">zero_pad</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../meta.html">Meta</a></li>
@@ -141,10 +142,10 @@
            <div itemprop="articleBody">
              
   <section id="permute-dims">
-<h1>permute_dims<a class="headerlink" href="#permute-dims" title="Permalink to this headline"></a></h1>
+<h1>permute_dims<a class="headerlink" href="#permute-dims" title="Permalink to this heading"></a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="ivy.functional.ivy.manipulation.permute_dims">
-<span class="sig-prename descclassname">ivy.</span></span><span class="sig-name descname"><span class="pre">permute_dims</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/ivy/functional/ivy/manipulation.html#permute_dims"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy.functional.ivy.manipulation.permute_dims" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname">ivy.</span></span><span class="sig-name descname"><span class="pre">permute_dims</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/ivy/functional/ivy/manipulation.html#permute_dims"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy.functional.ivy.manipulation.permute_dims" title="Permalink to this definition"></a></dt>
 <dd><p>Permutes the axes (dimensions) of an array x.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -170,15 +171,15 @@ data type as x.</p>
 <div class="line"><br /></div>
 <div class="line"><strong>Supported Frameworks:</strong></div>
 </div>
-<p><a class="reference internal" href="../../../_images/empty.png"><img alt="empty" src="../../../_images/empty.png" style="width: 4%;" /></a> <a class="reference external" href="https://jax.readthedocs.io"><img alt="jax_logo" src="../../../_images/jax_logo.png" style="width: 14%;" /></a> <a class="reference internal" href="../../../_images/empty.png"><img alt="empty" src="../../../_images/empty.png" style="width: 4%;" /></a> <a class="reference external" href="https://www.tensorflow.org"><img alt="tf_logo" src="../../../_images/tensorflow_logo.png" style="width: 14%;" /></a> <a class="reference internal" href="../../../_images/empty.png"><img alt="empty" src="../../../_images/empty.png" style="width: 4%;" /></a> <a class="reference external" href="https://pytorch.org"><img alt="pytorch_logo" src="../../../_images/pytorch_logo.png" style="width: 14%;" /></a> <a class="reference internal" href="../../../_images/empty.png"><img alt="empty" src="../../../_images/empty.png" style="width: 4%;" /></a> <a class="reference external" href="https://mxnet.apache.org"><img alt="mxnet_logo" src="../../../_images/mxnet_logo.png" style="width: 14%;" /></a> <a class="reference internal" href="../../../_images/empty.png"><img alt="empty" src="../../../_images/empty.png" style="width: 4%;" /></a> <a class="reference external" href="https://numpy.org"><img alt="numpy_logo" src="../../../_images/numpy_logo.png" style="width: 14%;" /></a> <a class="reference internal" href="../../../_images/empty.png"><img alt="empty" src="../../../_images/empty.png" style="width: 4%;" /></a></p>
+<p class=supported_frameworks><a class="reference external logo" href="https://jax.readthedocs.io"><img alt="jax_logo" src="../../../_images/jax_logo.png" /></a> <a class="reference external logo" href="https://www.tensorflow.org"><img alt="tf_logo" src="../../../_images/tensorflow_logo.png" /></a> <a class="reference external logo" href="https://pytorch.org"><img alt="pytorch_logo" src="../../../_images/pytorch_logo.png" /></a> <a class="reference external logo" href="https://mxnet.apache.org"><img alt="mxnet_logo" src="../../../_images/mxnet_logo.png" /></a> <a class="reference external logo" href="https://numpy.org"><img alt="numpy_logo" src="../../../_images/numpy_logo.png" /></a></p>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="expand_dims.html" class="btn btn-neutral float-left" title="expand_dims" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="stack.html" class="btn btn-neutral float-right" title="stack" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="flip.html" class="btn btn-neutral float-left" title="flip" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="reshape.html" class="btn btn-neutral float-right" title="reshape" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

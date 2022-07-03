@@ -14,6 +14,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -42,8 +43,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../extensions.html">Extensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../roadmap.html">Roadmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deep_dive.html">Deep Dive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../faq.html">FAQ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../building_the_docs.html">Building the Docs</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Functions</span></p>
 <ul>
@@ -123,7 +124,7 @@
 <span></span><span class="sd">&quot;&quot;&quot;Converters from Native Modules to Ivy Modules&quot;&quot;&quot;</span>
 
 <span class="c1"># local</span>
-<span class="kn">from</span> <span class="nn">ivy.backend_handler</span> <span class="kn">import</span> <span class="n">current_backend</span> <span class="k">as</span> <span class="n">_cur_backend</span>
+<span class="kn">from</span> <span class="nn">ivy.backend_handler</span> <span class="kn">import</span> <span class="n">current_backend</span>
 
 
 <div class="viewcode-block" id="to_ivy_module"><a class="viewcode-back" href="../../../stateful/converters/to_ivy_module.html#ivy.stateful.converters.to_ivy_module">[docs]</a><span class="k">def</span> <span class="nf">to_ivy_module</span><span class="p">(</span>
@@ -166,7 +167,7 @@
 <span class="sd">        The new trainable ivy.Module instance.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">_cur_backend</span><span class="p">()</span><span class="o">.</span><span class="n">to_ivy_module</span><span class="p">(</span>
+    <span class="k">return</span> <span class="n">current_backend</span><span class="p">()</span><span class="o">.</span><span class="n">to_ivy_module</span><span class="p">(</span>
         <span class="n">native_module</span><span class="p">,</span>
         <span class="n">native_module_class</span><span class="p">,</span>
         <span class="n">args</span><span class="p">,</span>

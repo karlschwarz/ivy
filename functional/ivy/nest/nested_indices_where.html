@@ -15,6 +15,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -45,8 +46,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../extensions.html">Extensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../roadmap.html">Roadmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deep_dive.html">Deep Dive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../faq.html">FAQ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../building_the_docs.html">Building the Docs</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Functions</span></p>
 <ul class="current">
@@ -82,6 +83,7 @@
 <li class="toctree-l2"><a class="reference internal" href="nested_map.html">nested_map</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nested_any.html">nested_any</a></li>
 <li class="toctree-l2"><a class="reference internal" href="copy_nest.html">copy_nest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nested_multi_map.html">nested_multi_map</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../norms.html">Norms</a></li>
@@ -142,10 +144,10 @@
            <div itemprop="articleBody">
              
   <section id="nested-indices-where">
-<h1>nested_indices_where<a class="headerlink" href="#nested-indices-where" title="Permalink to this headline"></a></h1>
+<h1>nested_indices_where<a class="headerlink" href="#nested-indices-where" title="Permalink to this heading"></a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="ivy.functional.ivy.nest.nested_indices_where">
-<span class="sig-prename descclassname">ivy.</span></span><span class="sig-name descname"><span class="pre">nested_indices_where</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_nests</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_ignore</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/ivy/functional/ivy/nest.html#nested_indices_where"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy.functional.ivy.nest.nested_indices_where" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname">ivy.</span></span><span class="sig-name descname"><span class="pre">nested_indices_where</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_nests</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_ignore</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_after_n_found</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/ivy/functional/ivy/nest.html#nested_indices_where"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy.functional.ivy.nest.nested_indices_where" title="Permalink to this definition"></a></dt>
 <dd><p>Checks the leaf nodes of nested x via function fn, and returns all nest indices
 where the method evaluates as True.</p>
 <dl class="field-list simple">
@@ -175,7 +177,7 @@ stack. Used internally, do not set manually.</p></li>
 <div class="line"><br /></div>
 <div class="line"><strong>Supported Frameworks:</strong></div>
 </div>
-<p><a class="reference internal" href="../../../_images/empty.png"><img alt="empty" src="../../../_images/empty.png" style="width: 4%;" /></a> <a class="reference external" href="https://jax.readthedocs.io"><img alt="jax_logo" src="../../../_images/jax_logo.png" style="width: 14%;" /></a> <a class="reference internal" href="../../../_images/empty.png"><img alt="empty" src="../../../_images/empty.png" style="width: 4%;" /></a> <a class="reference external" href="https://www.tensorflow.org"><img alt="tf_logo" src="../../../_images/tensorflow_logo.png" style="width: 14%;" /></a> <a class="reference internal" href="../../../_images/empty.png"><img alt="empty" src="../../../_images/empty.png" style="width: 4%;" /></a> <a class="reference external" href="https://pytorch.org"><img alt="pytorch_logo" src="../../../_images/pytorch_logo.png" style="width: 14%;" /></a> <a class="reference internal" href="../../../_images/empty.png"><img alt="empty" src="../../../_images/empty.png" style="width: 4%;" /></a> <a class="reference external" href="https://mxnet.apache.org"><img alt="mxnet_logo" src="../../../_images/mxnet_logo.png" style="width: 14%;" /></a> <a class="reference internal" href="../../../_images/empty.png"><img alt="empty" src="../../../_images/empty.png" style="width: 4%;" /></a> <a class="reference external" href="https://numpy.org"><img alt="numpy_logo" src="../../../_images/numpy_logo.png" style="width: 14%;" /></a> <a class="reference internal" href="../../../_images/empty.png"><img alt="empty" src="../../../_images/empty.png" style="width: 4%;" /></a></p>
+<p class=supported_frameworks><a class="reference external logo" href="https://jax.readthedocs.io"><img alt="jax_logo" src="../../../_images/jax_logo.png" /></a> <a class="reference external logo" href="https://www.tensorflow.org"><img alt="tf_logo" src="../../../_images/tensorflow_logo.png" /></a> <a class="reference external logo" href="https://pytorch.org"><img alt="pytorch_logo" src="../../../_images/pytorch_logo.png" /></a> <a class="reference external logo" href="https://mxnet.apache.org"><img alt="mxnet_logo" src="../../../_images/mxnet_logo.png" /></a> <a class="reference external logo" href="https://numpy.org"><img alt="numpy_logo" src="../../../_images/numpy_logo.png" /></a></p>
 </section>
 
 
