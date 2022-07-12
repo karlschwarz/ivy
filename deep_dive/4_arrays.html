@@ -62,12 +62,11 @@
 <li class="toctree-l2"><a class="reference internal" href="6_data_types.html">Data Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="7_devices.html">Devices</a></li>
 <li class="toctree-l2"><a class="reference internal" href="8_inplace_updates.html">Inplace Updates</a></li>
-<li class="toctree-l2"><a class="reference internal" href="9_formatting.html">Formatting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="10_function_arguments.html">Function Arguments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="11_docstrings.html">Docstrings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="12_docstring_examples.html">Docstring Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="13_array_api_tests.html">Array API Tests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="14_ivy_tests.html">Ivy Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="9_function_arguments.html">Function Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_docstrings.html">Docstrings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_docstring_examples.html">Docstring Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_array_api_tests.html">Array API Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13_ivy_tests.html">Ivy Tests</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
@@ -83,6 +82,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../functional/ivy/elementwise.html">Elementwise</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../functional/ivy/general.html">General</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../functional/ivy/gradients.html">Gradients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional/ivy/image.html">Image</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../functional/ivy/layers.html">Layers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../functional/ivy/linear_algebra.html">Linear algebra</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../functional/ivy/losses.html">Losses</a></li>
@@ -97,21 +97,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../functional/ivy/statistical.html">Statistical</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../functional/ivy/utility.html">Utility</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Data Classes</span></p>
+<p class="caption" role="heading"><span class="caption-text">Stateful</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../data_classes/container.html">Container</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../data_classes/array.html">Array</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Framework Classes</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../stateful/initializers.html">Initializers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../stateful/layers.html">Layers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../stateful/sequential.html">Sequential</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../stateful/norms.html">Norms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../stateful/optimizers.html">Optimizers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../stateful/activations.html">Activations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../stateful/converters.html">Converters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stateful/initializers.html">Initializers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stateful/layers.html">Layers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../stateful/module.html">Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stateful/norms.html">Norms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stateful/optimizers.html">Optimizers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stateful/sequential.html">Sequential</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Docs</span></p>
 <ul>
@@ -166,9 +161,9 @@ When a framework is set, this is <a class="reference external" href="https://git
 <h2>Ivy Array<a class="headerlink" href="#ivy-array" title="Permalink to this heading"></a></h2>
 <p>The <code class="code docutils literal notranslate"><span class="pre">ivy.Array</span></code> is a simple wrapper class, which wraps around the <code class="code docutils literal notranslate"><span class="pre">ivy.NativeArray</span></code>,
 storing it in <a class="reference external" href="https://github.com/unifyai/ivy/blob/529c8c0f128ff28331da7c8f52912d777d786cbe/ivy/array/__init__.py#L89">self._data</a>.</p>
-<p>All functions in the Ivy functional API which accept <em>at least one array argument</em> in
+<p>Most functions in the Ivy functional API which accept <em>at least one array argument</em> in
 the input are implemented as instance methods in the <code class="code docutils literal notranslate"><span class="pre">ivy.Array</span></code> class.
-The only exceptions to this are functions in the
+The exceptions to this are functions in the
 <a class="reference external" href="https://github.com/unifyai/ivy/blob/906ddebd9b371e7ae414cdd9b4bf174fd860efc0/ivy/functional/ivy/nest.py">nest</a>
 module and the
 <a class="reference external" href="https://github.com/unifyai/ivy/blob/906ddebd9b371e7ae414cdd9b4bf174fd860efc0/ivy/functional/ivy/meta.py">meta</a>
@@ -235,7 +230,7 @@ and so supporting them in the input is not a problem.
 Secondly, this makes it easier to combine backend-specific code with Ivy code,
 without needing to explicitly wrap any arrays before calling sections of Ivy code.</p>
 <p>Therefore, all input arrays to Ivy functions have type <code class="code docutils literal notranslate"><span class="pre">Union[ivy.Array,</span> <span class="pre">ivy.NativeArray]</span></code>,
-whereas the output arrays have type <code class="code docutils literal notranslate"><span class="pre">ivy.Array</span></code>. This is further explained in the <a class="reference internal" href="10_function_arguments.html#function-arguments"><span class="std std-ref">Function Arguments</span></a> section.</p>
+whereas the output arrays have type <code class="code docutils literal notranslate"><span class="pre">ivy.Array</span></code>. This is further explained in the <a class="reference internal" href="9_function_arguments.html#function-arguments"><span class="std std-ref">Function Arguments</span></a> section.</p>
 <p>However, <code class="code docutils literal notranslate"><span class="pre">ivy.NativeArray</span></code> instances are not permitted for the <code class="code docutils literal notranslate"><span class="pre">out</span></code> argument,
 which is used in most functions.
 This is because the <code class="code docutils literal notranslate"><span class="pre">out</span></code> argument dictates the array to which the result should be written, and so it effectively

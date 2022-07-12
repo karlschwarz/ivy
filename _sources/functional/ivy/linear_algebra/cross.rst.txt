@@ -2,8 +2,6 @@ cross
 =====
 
 .. autofunction:: ivy.functional.ivy.linear_algebra.cross
-
-.. autofunction:: ivy.array.array_methods.cross
 |
 | **Supported Frameworks:**
 
@@ -23,13 +21,3 @@ cross
 
 .. |numpy_logo| image:: ../../../logos/supported/numpy_logo.png
    :target: https://numpy.org
-
-
-.. toctree::
-   :hidden:
-   :maxdepth: -1
-   :caption: cross
-
-   cross/cross_functional.rst
-   cross/cross_array.rst
-

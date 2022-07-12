@@ -58,6 +58,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../functional/ivy/elementwise.html">Elementwise</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../functional/ivy/general.html">General</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../functional/ivy/gradients.html">Gradients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../functional/ivy/image.html">Image</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../functional/ivy/layers.html">Layers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../functional/ivy/linear_algebra.html">Linear algebra</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../functional/ivy/losses.html">Losses</a></li>
@@ -72,21 +73,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../functional/ivy/statistical.html">Statistical</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../functional/ivy/utility.html">Utility</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Data Classes</span></p>
+<p class="caption" role="heading"><span class="caption-text">Stateful</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../data_classes/container.html">Container</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../data_classes/array.html">Array</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Framework Classes</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../stateful/initializers.html">Initializers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../stateful/layers.html">Layers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../stateful/sequential.html">Sequential</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../stateful/norms.html">Norms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../stateful/optimizers.html">Optimizers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../stateful/activations.html">Activations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../stateful/converters.html">Converters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../stateful/initializers.html">Initializers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../stateful/layers.html">Layers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../stateful/module.html">Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../stateful/norms.html">Norms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../stateful/optimizers.html">Optimizers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../stateful/sequential.html">Sequential</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Docs</span></p>
 <ul>
@@ -148,7 +144,7 @@
 <span class="c1"># ------#</span>
 
 
-<div class="viewcode-block" id="random_uniform"><a class="viewcode-back" href="../../../../functional/ivy/random/random_uniform/random_uniform_functional.html#ivy.functional.ivy.random.random_uniform">[docs]</a><span class="nd">@outputs_to_ivy_arrays</span>
+<div class="viewcode-block" id="random_uniform"><a class="viewcode-back" href="../../../../functional/ivy/random/random_uniform.html#ivy.functional.ivy.random.random_uniform">[docs]</a><span class="nd">@outputs_to_ivy_arrays</span>
 <span class="nd">@handle_out_argument</span>
 <span class="nd">@infer_device</span>
 <span class="nd">@infer_dtype</span>
@@ -161,7 +157,7 @@
     <span class="n">device</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Device</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeDevice</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">out</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">:</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ivy</span><span class="o">.</span><span class="n">array</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Draws samples from a uniform distribution. Samples are uniformly distributed over</span>
 <span class="sd">    the half-open interval ``[low, high)`` (includes ``low``, but excludes ``high``). In</span>
 <span class="sd">    other words, any value within the given interval is equally likely to be drawn by</span>
@@ -181,9 +177,6 @@
 <span class="sd">    device</span>
 <span class="sd">        device on which to create the array &#39;cuda:0&#39;, &#39;cuda:1&#39;, &#39;cpu&#39; etc.</span>
 <span class="sd">        (Default value = None).</span>
-<span class="sd">    out</span>
-<span class="sd">        optional output array, for writing the result to. It must have a shape that the</span>
-<span class="sd">        inputs broadcast to.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -256,9 +249,6 @@
 <span class="sd">        samples are drawn. If size is ``None`` (default), a single value is returned.</span>
 <span class="sd">    device</span>
 <span class="sd">        (Default value = ``None``)</span>
-<span class="sd">    out</span>
-<span class="sd">        optional output array, for writing the result to. It must have a shape that the</span>
-<span class="sd">        inputs broadcast to.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -337,9 +327,6 @@
 <span class="sd">    device</span>
 <span class="sd">        device on which to create the array &#39;cuda:0&#39;, &#39;cuda:1&#39;, &#39;cpu&#39; etc.</span>
 <span class="sd">        (Default value = None)</span>
-<span class="sd">    out</span>
-<span class="sd">        optional output array, for writing the result to. It must have a shape that the</span>
-<span class="sd">        inputs broadcast to.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -398,7 +385,7 @@
     <span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="randint"><a class="viewcode-back" href="../../../../functional/ivy/random/randint/randint_functional.html#ivy.functional.ivy.random.randint">[docs]</a><span class="nd">@outputs_to_ivy_arrays</span>
+<div class="viewcode-block" id="randint"><a class="viewcode-back" href="../../../../functional/ivy/random/randint.html#ivy.functional.ivy.random.randint">[docs]</a><span class="nd">@outputs_to_ivy_arrays</span>
 <span class="nd">@handle_out_argument</span>
 <span class="nd">@infer_device</span>
 <span class="nd">@handle_nestable</span>
@@ -457,7 +444,7 @@
 <span class="sd">               [ 8, 11,  3]])</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">res</span> <span class="o">=</span> <span class="n">current_backend</span><span class="p">()</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">)</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">current_backend</span><span class="p">()</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">ivy</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">out</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">ivy</span><span class="o">.</span><span class="n">inplace_update</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">res</span></div>
@@ -493,9 +480,6 @@
 <span class="sd">    ----------</span>
 <span class="sd">    x</span>
 <span class="sd">        Input array. Should have a numeric data type.</span>
-<span class="sd">    out</span>
-<span class="sd">        optional output array, for writing the result to. It must have a shape that the</span>
-<span class="sd">        inputs broadcast to.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
