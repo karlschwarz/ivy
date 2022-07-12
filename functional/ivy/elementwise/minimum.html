@@ -1,5 +1,4 @@
-<!
-      <link rel="icon" type="image/png" href="../logos/ivy_logo_only.png">DOCTYPE html>
+<!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -7,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>minimum &mdash; Ivy 1.0 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="icon" type="image/png" href="https://github.com/unifyai/unifyai.github.io/blob/master/img/externally_linked/ivy_logo_only.png?raw=true">
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -85,11 +85,12 @@
 <li class="toctree-l2"><a class="reference internal" href="floor_divide.html">floor_divide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="greater.html">greater</a></li>
 <li class="toctree-l2"><a class="reference internal" href="greater_equal.html">greater_equal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="less_equal.html">less_equal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multiply.html">multiply</a></li>
 <li class="toctree-l2"><a class="reference internal" href="isfinite.html">isfinite</a></li>
 <li class="toctree-l2"><a class="reference internal" href="isinf.html">isinf</a></li>
 <li class="toctree-l2"><a class="reference internal" href="isnan.html">isnan</a></li>
 <li class="toctree-l2"><a class="reference internal" href="less.html">less</a></li>
-<li class="toctree-l2"><a class="reference internal" href="less_equal.html">less_equal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="log.html">log</a></li>
 <li class="toctree-l2"><a class="reference internal" href="log10.html">log10</a></li>
 <li class="toctree-l2"><a class="reference internal" href="log1p.html">log1p</a></li>
@@ -99,7 +100,6 @@
 <li class="toctree-l2"><a class="reference internal" href="logical_not.html">logical_not</a></li>
 <li class="toctree-l2"><a class="reference internal" href="logical_or.html">logical_or</a></li>
 <li class="toctree-l2"><a class="reference internal" href="logical_xor.html">logical_xor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="multiply.html">multiply</a></li>
 <li class="toctree-l2"><a class="reference internal" href="negative.html">negative</a></li>
 <li class="toctree-l2"><a class="reference internal" href="not_equal.html">not_equal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="positive.html">positive</a></li>
@@ -122,7 +122,6 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../general.html">General</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gradients.html">Gradients</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../image.html">Image</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../layers.html">Layers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linear_algebra.html">Linear algebra</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../losses.html">Losses</a></li>
@@ -137,16 +136,21 @@
 <li class="toctree-l1"><a class="reference internal" href="../statistical.html">Statistical</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../utility.html">Utility</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Stateful</span></p>
+<p class="caption" role="heading"><span class="caption-text">Data Classes</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../stateful/activations.html">Activations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../stateful/converters.html">Converters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_classes/container.html">Container</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_classes/array.html">Array</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Framework Classes</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../stateful/initializers.html">Initializers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../stateful/layers.html">Layers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../stateful/module.html">Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../stateful/sequential.html">Sequential</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../stateful/norms.html">Norms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../stateful/optimizers.html">Optimizers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../stateful/sequential.html">Sequential</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../stateful/activations.html">Activations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../stateful/converters.html">Converters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../stateful/module.html">Module</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Docs</span></p>
 <ul>
@@ -197,6 +201,8 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>x1</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">NativeArray</span></code>]) – Input array containing elements to minimum threshold.</p></li>
 <li><p><strong>x2</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">NativeArray</span></code>]) – Tensor containing minimum values, must be broadcastable to x1.</p></li>
+<li><p><strong>out</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">NativeArray</span></code>]]) – optional output array, for writing the result to. It must have a shape that the (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)
+inputs broadcast to.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
