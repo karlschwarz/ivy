@@ -1160,18 +1160,20 @@
 
 <span class="sd">    With :code:`ivy.Array` input:</span>
 
-<span class="sd">    &gt;&gt;&gt; x = ivy.random_normal(shape = (8, 6))</span>
+<span class="sd">    &gt;&gt;&gt; x = ivy.array([[5.0, 7.0], [4.0, 3.0]])</span>
 <span class="sd">    &gt;&gt;&gt; S = ivy.svdvals(x)</span>
 <span class="sd">    &gt;&gt;&gt; print(S.shape)</span>
-<span class="sd">    (6,)</span>
+<span class="sd">    (2,)</span>
+
+<span class="sd">    Compare the singular value S by ivy.svdvals() with the result by ivy.svd().</span>
 
 <span class="sd">    &gt;&gt;&gt; _, SS, _ = ivy.svd(x)</span>
 <span class="sd">    &gt;&gt;&gt; print(SS.shape)</span>
-<span class="sd">    (6,)</span>
+<span class="sd">    (2,)</span>
 
 <span class="sd">    &gt;&gt;&gt; error = (SS - S).abs()</span>
 <span class="sd">    &gt;&gt;&gt; print(error)</span>
-<span class="sd">    ivy.array([0.00e+00, 2.38e-07, 2.38e-07, 2.38e-07, 0.00e+00, 1.19e-07])</span>
+<span class="sd">    ivy.array([0., 0.])</span>
 
 <span class="sd">    With :code:`ivy.NativeArray` input:</span>
 
@@ -1187,6 +1189,8 @@
 <span class="sd">    &gt;&gt;&gt; _, SS, _ = ivy.svd(x)</span>
 <span class="sd">    &gt;&gt;&gt; print(SS)</span>
 <span class="sd">    ivy.array([10.3, 1.16, 0.615])</span>
+
+<span class="sd">    Compare the singular value S by ivy.svdvals() with the result by ivy.svd().</span>
 
 <span class="sd">    &gt;&gt;&gt; error = (SS - S).abs()</span>
 <span class="sd">    &gt;&gt;&gt; print(error)</span>
