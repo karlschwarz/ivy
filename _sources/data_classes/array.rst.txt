@@ -1,7 +1,7 @@
 Array
 =====
 
-.. automodule:: ivy.Array
+.. automodule:: ivy.array.array
     :members:
     :special-members: __init__
     :undoc-members:
@@ -10,28 +10,39 @@ Array
 
 .. toctree::
    :hidden:
+   :titlesonly:
    :maxdepth: -1
    :caption: Array
 
+   array/array/Array.rst
+   array/array/Variable.rst
+
+
+
+.. toctree::
+   :hidden:
+   :maxdepth: -1
+   :caption: Array
+
+   array/activations.rst
+   array/conversions.rst
+   array/creation.rst
+   array/data_type.rst
+   array/device.rst
+   array/elementwise.rst
+   array/general.rst
+   array/gradients.rst
+   array/image.rst
+   array/layers.rst
    array/linear_algebra.rst
    array/losses.rst
-   array/statistical.rst
-   array/utility.rst
-   array/layers.rst
    array/manipulation.rst
+   array/norms.rst
+   array/random.rst
+   array/searching.rst
    array/set.rst
    array/sorting.rst
-   array/norms.rst
-   array/creation.rst
-   array/elementwise.rst
-   array/activations.rst
-   array/gradients.rst
-   array/device.rst
-   array/conversions.rst
-   array/image.rst
-   array/data_type.rst
-   array/random.rst
+   array/statistical.rst
+   array/utility.rst
    array/wrapping.rst
-   array/searching.rst
-   array/general.rst
 

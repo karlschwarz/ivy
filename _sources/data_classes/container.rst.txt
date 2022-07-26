@@ -1,7 +1,7 @@
 Container
 =========
 
-.. automodule:: ivy.Container
+.. automodule:: ivy.container.container
     :members:
     :special-members: __init__
     :undoc-members:
@@ -10,29 +10,38 @@ Container
 
 .. toctree::
    :hidden:
+   :titlesonly:
    :maxdepth: -1
    :caption: Container
 
-   container/linear_algebra.rst
+   container/container/Container.rst
+
+
+
+.. toctree::
+   :hidden:
+   :maxdepth: -1
+   :caption: Container
+
+   container/activations.rst
    container/base.rst
-   container/losses.rst
-   container/statistical.rst
-   container/utility.rst
+   container/creation.rst
+   container/data_type.rst
+   container/device.rst
+   container/elementwise.rst
+   container/general.rst
+   container/gradients.rst
+   container/image.rst
    container/layers.rst
+   container/linear_algebra.rst
+   container/losses.rst
    container/manipulation.rst
+   container/norms.rst
+   container/random.rst
+   container/searching.rst
    container/set.rst
    container/sorting.rst
-   container/norms.rst
-   container/creation.rst
-   container/elementwise.rst
-   container/activations.rst
-   container/gradients.rst
-   container/device.rst
-   container/image.rst
-   container/container.rst
-   container/data_type.rst
-   container/random.rst
+   container/statistical.rst
+   container/utility.rst
    container/wrapping.rst
-   container/searching.rst
-   container/general.rst
 

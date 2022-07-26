@@ -59,6 +59,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#pull-requests">Pull Requests</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#small-commits-often">Small Commits Often</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interactive-ivy-docker-container">Interactive Ivy Docker Container</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#running-tests-locally">Running Tests Locally</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#with-docker">With Docker</a></li>
 </ul>
@@ -84,7 +85,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../functional/ivy/elementwise.html">Elementwise</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../functional/ivy/general.html">General</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../functional/ivy/gradients.html">Gradients</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../functional/ivy/image.html">Image</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../functional/ivy/layers.html">Layers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../functional/ivy/linear_algebra.html">Linear algebra</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../functional/ivy/losses.html">Losses</a></li>
@@ -99,16 +99,21 @@
 <li class="toctree-l1"><a class="reference internal" href="../functional/ivy/statistical.html">Statistical</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../functional/ivy/utility.html">Utility</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Stateful</span></p>
+<p class="caption" role="heading"><span class="caption-text">Data Classes</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../stateful/activations.html">Activations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_classes/container.html">Container</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_classes/array.html">Array</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Framework Classes</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../stateful/converters.html">Converters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stateful/sequential.html">Sequential</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../stateful/initializers.html">Initializers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../stateful/layers.html">Layers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../stateful/module.html">Module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../stateful/norms.html">Norms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../stateful/optimizers.html">Optimizers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../stateful/sequential.html">Sequential</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stateful/module.html">Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stateful/activations.html">Activations</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Docs</span></p>
 <ul>
@@ -277,34 +282,43 @@ or on <a class="reference external" href="https://discord.gg/ZVQdvbzNQJ">discord
 </section>
 <section id="who-to-ask">
 <h2>Who To Ask<a class="headerlink" href="#who-to-ask" title="Permalink to this heading"></a></h2>
-<p>Quite often, you would like to get a better understanding of the logic in the
-implementation of Ivy, raising issues or starting discussions with the context
-of who made what changes. Here is a common workflow to help get around the
-problem of “who to ask” by using,</p>
+<p>When raising issues or starting discussions on the Ivy repo,
+it can be useful to know who in the team wrote which piece of code.
+Armed with this information, you can then for example directly tag (using &#64;)
+the member of the team who worked on a particular piece of code,
+which you are trying to understand, or you would like to ask questions about.</p>
+<p>Here we describe a workflow to help navigate this question of “who to ask”.</p>
 <section id="with-command-line">
 <h3>With Command Line:<a class="headerlink" href="#with-command-line" title="Permalink to this heading"></a></h3>
 <p><strong>git blame</strong> - Show what revision and author last modified each line of a file</p>
 <p><strong>git log</strong>   - Show commit logs</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Eg: From line 16 to next 5 lines since past 2 weeks
 git blame --since=2.weeks -L 16,+5 &lt;filepath&gt; | grep -v &quot;^\^&quot;
-# Deeper look at what author changed in the files in commit retrieved from above step
+# Deeper look at what each author changed in files retrieved from the above step
 git log &lt;commit_id&gt; -p
 </pre></div>
 </div>
-<p>You are welcome to tag members using “&#64;” in our team, who you think would be best
-suited to interact with based on the information gained from above steps.</p>
 </section>
 <section id="with-browser">
 <h3>With Browser:<a class="headerlink" href="#with-browser" title="Permalink to this heading"></a></h3>
 <p><strong>Git Blame View</strong> is a handy tool to view the line-by-line revision history for an entire file,
 or view the revision history of a single line within a file.</p>
-<a class="reference internal image-reference" href="../_images/git_blame_.png"><img alt="../_images/git_blame_.png" src="../_images/git_blame_.png" style="width: 420px;" /></a>
-<p>This view can be toggled from option in left vertical pane or from the “blame” icon in top-right
-as highlighted above.</p>
-<a class="reference internal image-reference" href="../_images/git_blame_.png"><img alt="../_images/git_blame_.png" src="../_images/git_blame_.png" style="width: 420px;" /></a>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/git_blame_1.png"><img alt="../_images/git_blame_1.png" src="../_images/git_blame_1.png" style="width: 420px;" /></a>
+</div></blockquote>
+<p>This view can be toggled from the option in left vertical pane,
+or from the “blame” icon in top-right, as highlighted above.</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/git_blame_2.png"><img alt="../_images/git_blame_2.png" src="../_images/git_blame_2.png" style="width: 420px;" /></a>
+</div></blockquote>
 <p>Each time you click the highlighted icon, the previous revision information
-for that line, including who committed the change and when is shown.</p>
-<a class="reference internal image-reference" href="../_images/git_blame_.png"><img alt="../_images/git_blame_.png" src="../_images/git_blame_.png" style="width: 420px;" /></a>
+for that line is shown, including who committed the change and when this happened.</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/git_blame_3.png"><img alt="../_images/git_blame_3.png" src="../_images/git_blame_3.png" style="width: 420px;" /></a>
+</div></blockquote>
+<p>Whenever starting a discussion or creating an issue, you are very welcome to tag
+members of the Ivy team using “&#64;”, selecting the person you think would most suitable
+to interact with, based on the information gained from the above steps.</p>
 </section>
 </section>
 <section id="pull-requests">
@@ -380,6 +394,35 @@ If a mistake is commited into the history, it’s generally not too difficult to
 so don’t stress about this too much 🙂</p>
 <p>For questions, please reach out on the <a class="reference external" href="https://github.com/unifyai/ivy/discussions/1309">contributing discussion</a>
 or on <a class="reference external" href="https://discord.gg/ZVQdvbzNQJ">discord</a> in the <a class="reference external" href="https://discord.com/channels/799879767196958751/982728822317256712">commit frequency channel</a>!</p>
+</section>
+<section id="interactive-ivy-docker-container">
+<h2>Interactive Ivy Docker Container<a class="headerlink" href="#interactive-ivy-docker-container" title="Permalink to this heading"></a></h2>
+<p>The advantage of Docker interactive mode is that it allows us to execute commands at the time
+of running the container. It’s quite a nifty tool which can be used to reassure that the functions are
+working as expected in an isolated environment.</p>
+<p>An interactive bash shell in ivy’s docker container can be created by using the following command,</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker run --rm -it unifyai/ivy bash
+</pre></div>
+</div>
+<p>The project structure and file-system can be explored. This can be very useful when you want to test out the bash
+scripts in ivy, run the tests from the command line etc,. In fact, if you only want to quickly test things in an
+interactive python shell run the following command,</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker run --rm -it unifyai/ivy python3
+</pre></div>
+</div>
+<p>In both cases, the ivy version at the time when the container was built will be used.
+If you want to try out your local version of ivy, with all of the local changes you have made, you should add
+the following mount:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker run --rm -it -v /local_path_to_ivy/ivy/ivy:/ivy/ivy unifyai/ivy bash
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>This will overwrite the <em>ivy</em> subfolder inside the ivy repo in the container with the <em>ivy</em> subfolder inside your local ivy repo.</p></li>
+<li><p>Ivy is installed system-wide inside the container via the command <code class="code docutils literal notranslate"><span class="pre">python3</span> <span class="pre">setup.py</span> <span class="pre">develop</span> <span class="pre">--no-deps</span></code></p></li>
+<li><p>The <code class="code docutils literal notranslate"><span class="pre">develop</span></code> command means that the system-wide installation will still depend on the original source files, rather than creating a fresh copy.</p></li>
+<li><p>Therefore, ivy can be imported into an interactive python shell from any directory inside the container, and it will still use the latest updates made to the source code.</p></li>
+</ul>
+<p>Clearly, running a container in interactive mode can be a helpful tool in a developer’s arsenal.</p>
 </section>
 <section id="running-tests-locally">
 <h2>Running Tests Locally<a class="headerlink" href="#running-tests-locally" title="Permalink to this heading"></a></h2>
