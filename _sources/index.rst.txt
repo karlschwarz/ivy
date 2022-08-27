@@ -314,6 +314,7 @@ Citation
    contributing.rst
    deep_dive.rst
    faq.rst
+   glossary.rst
 
 
 .. toctree::
@@ -340,14 +341,14 @@ Citation
    :maxdepth: -1
    :caption: Framework Classes
 
-   stateful/converters.rst
-   stateful/sequential.rst
    stateful/initializers.rst
-   stateful/layers.rst
-   stateful/norms.rst
+   stateful/converters.rst
    stateful/optimizers.rst
    stateful/module.rst
+   stateful/layers.rst
+   stateful/norms.rst
    stateful/activations.rst
+   stateful/sequential.rst
 
 
 .. toctree::
