@@ -57,6 +57,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../functional/ivy/data_type.html">Data type</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../functional/ivy/device.html">Device</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../functional/ivy/elementwise.html">Elementwise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../functional/ivy/extensions.html">Extensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../functional/ivy/general.html">General</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../functional/ivy/gradients.html">Gradients</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../functional/ivy/layers.html">Layers</a></li>
@@ -491,6 +492,12 @@
 <span class="sd">        -------</span>
 <span class="sd">            A list of sub-arrays.</span>
 
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; x = ivy.array([4, 6, 5, 3])</span>
+<span class="sd">        &gt;&gt;&gt; y = x.split()</span>
+<span class="sd">        &gt;&gt;&gt; print(y)</span>
+<span class="sd">        [ivy.array([4]),ivy.array([6]),ivy.array([5]),ivy.array([3])]</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">ivy</span><span class="o">.</span><span class="n">split</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">,</span>
@@ -525,6 +532,22 @@
 <span class="sd">        ivy.Array instance method variant of ivy.tile. This method simply</span>
 <span class="sd">        wraps the function, and so the docstring for ivy.tile also applies</span>
 <span class="sd">        to this method with minimal changes.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; x = ivy.array([[0], [1], [2]])</span>
+<span class="sd">        &gt;&gt;&gt; y = x.tile((3,2))</span>
+<span class="sd">        &gt;&gt;&gt; print(y)</span>
+<span class="sd">        ivy.array([[0,0],</span>
+<span class="sd">                   [1,1],</span>
+<span class="sd">                   [2,2],</span>
+<span class="sd">                   [0,0],</span>
+<span class="sd">                   [1,1],</span>
+<span class="sd">                   [2,2],</span>
+<span class="sd">                   [0,0],</span>
+<span class="sd">                   [1,1],</span>
+<span class="sd">                   [2,2]])</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">ivy</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">,</span> <span class="n">reps</span><span class="o">=</span><span class="n">reps</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">)</span></div>
 

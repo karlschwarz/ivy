@@ -11,18 +11,37 @@ Ivy Tests
 .. _`continuous integration`: https://github.com/unifyai/ivy/tree/0fc4a104e19266fb4a65f5ec52308ff816e85d78/.github/workflows
 .. _`search strategies`: https://hypothesis.readthedocs.io/en/latest/data.html
 .. _`methods`: https://hypothesis.readthedocs.io/en/latest/data.html
-.. _`line`: https://github.com/unifyai/ivy/blob/master/ivy_tests/test_ivy/test_functional/test_core/test_manipulation.py#L476
-.. _`here`: https://github.com/unifyai/ivy/blob/master/ivy_tests/test_ivy/test_functional/test_core/test_creation.py#L192
-.. _`this`: https://github.com/unifyai/ivy/blob/master/ivy_tests/test_ivy/test_functional/test_core/test_sorting.py#L18
-.. _`example`: https://github.com/unifyai/ivy/blob/master/ivy_tests/test_ivy/helpers.py#L1054
-.. _`test_concat`: https://github.com/unifyai/ivy/blob/master/ivy_tests/test_ivy/test_functional/test_core/test_manipulation.py#L38
+.. _`finfo`: https://github.com/unifyai/ivy/blob/d8f1ffe8ebf38fa75161c1a9459170e95f3c82b6/ivy/functional/ivy/data_type.py#L276
+.. _`data generation`: https://github.com/unifyai/ivy/blob/7063bf4475b93f87a4a96ef26c56c2bd309a2338/ivy_tests/test_ivy/test_functional/test_core/test_dtype.py#L337
+.. _`here`: https://lets-unify.ai/ivy/deep_dive/1_function_types.html#function-types
+.. _`test_default_int_dtype`: https://github.com/unifyai/ivy/blob/7063bf4475b93f87a4a96ef26c56c2bd309a2338/ivy_tests/test_ivy/test_functional/test_core/test_dtype.py#L835
+.. _`sampled_from`: https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.sampled_from
+.. _`lists`: https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.lists
+.. _`booleans`: https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.booleans
+.. _`integers`: https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.integers
+.. _`floats`: https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.floats
+.. _`none`: https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.none
+.. _`tuples`: https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.tuples
+.. _`one_of`: https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.one_of
+.. _`shared`: https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.shared
+.. _`sets`: https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.sets
+.. _`map`: https://hypothesis.readthedocs.io/en/latest/data.html#mapping
+.. _`filter`: https://hypothesis.readthedocs.io/en/latest/data.html#filtering
+.. _`flatmap`: https://hypothesis.readthedocs.io/en/latest/data.html#chaining-strategies-together
+.. _`data`: https://hypothesis.readthedocs.io/en/latest/data.html?highlight=strategies.data#hypothesis.strategies.data
+.. _`composite`: https://hypothesis.readthedocs.io/en/latest/data.html?highlight=strategies.composite#hypothesis.strategies.composite
+.. _`line`: https://github.com/unifyai/ivy/blob/b2305d1d01528c4a6fa9643dfccf65e33b8ecfd8/ivy_tests/test_ivy/test_functional/test_core/test_manipulation.py#L477
+.. _`here`: https://github.com/unifyai/ivy/blob/b2305d1d01528c4a6fa9643dfccf65e33b8ecfd8/ivy_tests/test_ivy/test_functional/test_core/test_manipulation.py#L392
+.. _`this`: https://github.com/unifyai/ivy/blob/b2305d1d01528c4a6fa9643dfccf65e33b8ecfd8/ivy_tests/test_ivy/test_functional/test_core/test_sorting.py#L18
+.. _`example`: https://github.com/unifyai/ivy/blob/b2305d1d01528c4a6fa9643dfccf65e33b8ecfd8/ivy_tests/test_ivy/helpers.py#L1085
+.. _`test_concat`: https://github.com/unifyai/ivy/blob/1281a2baa15b8e43a06df8926ceef1a3d7605ea6/ivy_tests/test_ivy/test_functional/test_core/test_manipulation.py#L51
 .. _`test_device`: https://github.com/unifyai/ivy/blob/master/ivy_tests/test_ivy/test_functional/test_core/test_device.py
 .. _`test_manipulation`: https://github.com/unifyai/ivy/blob/master/ivy_tests/test_ivy/test_functional/test_core/test_manipulation.py
 .. _`test_layers`: https://github.com/unifyai/ivy/blob/master/ivy_tests/test_ivy/test_functional/test_nn/test_layers.py
-.. _`keyword`: https://github.com/unifyai/ivy/blob/master/ivy_tests/test_ivy/helpers.py#L1100
-.. _`arguments`: https://github.com/unifyai/ivy/blob/master/ivy_tests/test_ivy/helpers.py#L1337
+.. _`keyword`:https://github.com/unifyai/ivy/blob/b2305d1d01528c4a6fa9643dfccf65e33b8ecfd8/ivy_tests/test_ivy/helpers.py#L1108
+.. _`arguments`: https://github.com/unifyai/ivy/blob/b2305d1d01528c4a6fa9643dfccf65e33b8ecfd8/ivy_tests/test_ivy/helpers.py#L1354
 .. _`documentation`: https://hypothesis.readthedocs.io/en/latest/quickstart.html
-.. _`test_gelu`: https://github.com/unifyai/ivy/blob/master/ivy_tests/test_ivy/test_stateful/test_activations.py#L52
+.. _`test_gelu`: https://github.com/unifyai/ivy/blob/b2305d1d01528c4a6fa9643dfccf65e33b8ecfd8/ivy_tests/test_ivy/test_functional/test_nn/test_activations.py#L104
 .. _`test_array_function`: https://github.com/unifyai/ivy/blob/0fc4a104e19266fb4a65f5ec52308ff816e85d78/ivy_tests/test_ivy/helpers.py#L401
 .. _`artifact`: https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts
 .. _`ivy tests discussion`: https://github.com/unifyai/ivy/discussions/1304
@@ -69,8 +88,16 @@ as pytest skipping does not play nicely with hypothesis testing.
 
 Data Generation
 ---------------
+We aim to make the data generation for three out of the four kinds of ivy functions exhaustive; primary, compositional
+and mixed. Exhaustive data generation implies that all possible inputs and combinations of inputs are covered. Take
+`finfo`_ , for example. It can take either arrays or dtypes as input, hence the `data generation`_ reflects this using
+the bespoke search strategy :code:`_array_or_type`. However, such rigorous testing is not necessary for standalone functions
+(those that are entirely self-contained in the Ivy codebase without external references). These kinds of functions may
+only require standard Pytest testing using :code:`parametrize`, e.g. `test_default_int_dtype`_. For further clarity on
+the various function types in ivy, see `here`_.
+
 The way data is generated is described by the :code:`hypothesis.strategies` module which contains a variety of `methods`_
-that have been used widely in each of Ivy's functional and stateful submodule tests. An initialized strategy is a object
+that have been used widely in each of Ivy's functional and stateful submodule tests. An initialized strategy is an object
 that is used by Hypothesis to generate data for the test. For example, let's write a strategy that generates supported
 integer data types in Ivy -:
 
@@ -104,10 +131,10 @@ intricacies behind the helper functions in the *test_ivy* directory.
 
 In the example above, **st.lists** and **st.sampled_from** are what we call strategies. To briefly describe -:
 
-1. **sampled_from** accepts a collection of objects. This strategy will return a value that is sampled from this
+1. `sampled_from`_ accepts a collection of objects. This strategy will return a value that is sampled from this
 collection.
 
-2. **lists** accepts another strategy which describes the elements of the list being generated. This is best used when
+2. `lists`_ accepts another strategy which describes the elements of the list being generated. This is best used when
 a sequence of varying lengths is required to be generated, with elements that are described by other strategies. The
 following parameters can be specified by the user-:
 
@@ -120,11 +147,11 @@ Important Strategies
 It might be helpful to look at a few more strategies, since they are widely used across the  helper functions to
 generate custom data -:
 
-3. **booleans** - generates boolean values True or False
+3. `booleans`_ - generates boolean values True or False
 
-4. **integers** - generates integers values within a given range
+4. `integers`_ - generates integers values within a given range
 
-5. **float** -  It is a powerful strategy that generates all variety of floats, including math.inf and math.nan.
+5. `floats`_ -  It is a powerful strategy that generates all variety of floats, including math.inf and math.nan.
 You can also specify:
 
 * Math.inf and math.nan, respectively, should be included in the data description.
@@ -133,37 +160,37 @@ You can also specify:
   64-bit, width=32 ensures that the generated values can always be losslessly represented in both 32 bits. This is
   mostly useful for Numpy arrays).
 
-6. **none** - returns a strategy which only generates None.
+6. `none`_ - returns a strategy which only generates None.
 
-7. **tuples** - The strategy accepts N Hypothesis strategies, and will generate length - N tuples whose elements are drawn
+7. `tuples`_ - The strategy accepts N Hypothesis strategies, and will generate length - N tuples whose elements are drawn
 from the respective strategies that were specified as inputs.
 
-8. **one_of** - This allows us to specify a collection of strategies and any given datum will be drawn from “one of” them.
+8. `one_of`_ - This allows us to specify a collection of strategies and any given datum will be drawn from “one of” them.
 Hypothesis has the *pipe* operator overloaded as a shorthand for one_of. This has been widely used all over in Ivy Tests.
 For example, this `line`_ here, can also be written as -:
 
 .. code-block:: python
 
-    st.one_of(st.none(), st.integers(-ndim, ndim -1))
+    st.one_of(st.none(), helpers.ints(min_value=-ndim, max_value=ndim -1))
 
-9. **shared** - This returns a strategy that draws a shared value per run, drawn from base. Any two shared instances with
-the same key will share the same value. For example, `here`_, the parameters, *dtype_and_x* and *num_positional_args* share
+9. `shared`_ - This returns a strategy that draws a shared value per run, drawn from base. Any two shared instances with
+the same key will share the same value. For example, `here`_, the parameters, *input_dtype* and *as_variable* share
 the same key *num_arrays*, hence similar values will be drawn for both arguments.
 
-10. **sets** - This is used for generating a *unique collection* of elements. Like **st.lists** it accepts another strategy
+10. `sets`_ - This is used for generating a *unique collection* of elements. Like **st.lists** it accepts another strategy
 which describes the elements of the set being generated.
 
-11. **map** - The map method, permits us to perform a mapping on the data being produced by a strategy.
+11. `map`_ - The map method, permits us to perform a mapping on the data being produced by a strategy.
 
-12. **filter** - Data is filtered using this method. It takes a callable that accepts as input the data generated by the
+12. `filter`_ - Data is filtered using this method. It takes a callable that accepts as input the data generated by the
 strategy, and returns:
 
 * True if the data should pass through the filter
 * False if the data should be rejected by the filter
 
-13. **flatmap** - This enables us to define a strategy based on a value drawn from a previous strategy.
+13. `flatmap`_ - This enables us to define a strategy based on a value drawn from a previous strategy.
 
-14. **data** - This is one of the **most** important strategies used in the project. It will often be the case that it is
+14. `data`_ - This is one of the **most** important strategies used in the project. It will often be the case that it is
 required to draw strategies in a context-dependent manner within the test. Suppose, we want to generate an array of
 values in some ivy test, but we want make sure that those values are only of the valid float types supported by Ivy.
 The st.data() strategy can be used *interactively*, and values can be drawn at test-time, using **data.draw()** method.
@@ -172,7 +199,7 @@ The **given** operator usually contains the data parameter, which is an instance
 instance is what gets drawn from the st.data() strategy. For example, at `this`_ line the keyword arguments for the
 function *test_argsort*, have been generated only after the generation of the array.
 
-15. **composite** - The second **most** widely used strategy in *Ivy tests*. This provides a decorator, which permits us to
+15. `composite`_ - The second **most** widely used strategy in *Ivy tests*. This provides a decorator, which permits us to
 form our own strategies for describing data by composing Hypothesis’ built-in strategies. For `example`_.
 
 
@@ -184,14 +211,11 @@ and passing them as inputs to the test. For example, in this code snippet here -
 
 .. code-block:: python
 
+    @handle_cmd_line_args
     @given(
     dtype_and_x=helpers.dtype_and_values(ivy_np.valid_float_dtypes),
-    as_variable=helpers.list_of_length(st.booleans(), 2),
-    native_array=st.booleans(),
-    num_positional_args=st.integers(0, 2),
-    container=helpers.list_of_length(st.booleans(), 2),
-    instance_method=st.booleans(),
-    alpha=st.floats(),
+    num_positional_args=helpers.ints(min_value=0, max_value=2),
+    alpha=helpers.floats(),
     )
     def test_leaky_relu(
     dtype_and_x,
@@ -222,7 +246,7 @@ and passing them as inputs to the test. For example, in this code snippet here -
    			x=np.asarray(x, dtype=dtype),
    			alpha=alpha,)
 
-In the test above, all parameters being exhaustively drawn inside the given block from hypothesis either
+In the test above, all parameters being exhaustively drawn inside the decorator :code:`@handle_cmd_line_args` and :code:`@given` from hypothesis either
 **directly** (*native_array, num_positional, instance_methods, alpha*) or **indirectly** (*dtype_and_x, as_variable, container*)
 with the *helper* functions.
 
@@ -282,7 +306,7 @@ returns -:
 .. code-block:: python
 
     #a sequence of floats with arbitrary lengths ranging from [1,5]
-    print_hypothesis_examples(array_dtypes(st.integers(1,5)))
+    print_hypothesis_examples(array_dtypes(helpers.ints(min_value=1, max_value=5)))
 
     ['float16', 'float32', 'float16', 'float16', 'float32']
     ['float64', 'float64', 'float32', 'float32', 'float16']
@@ -293,7 +317,7 @@ This function should be used whenever we are testing an ivy function that accept
 
 .. code-block:: python
 
-    print_hypothesis_examples(array_bools(na = st.integers(1,5)))
+    print_hypothesis_examples(array_bools(na = helpers.ints(min_value=1, max_value=5)))
 
     [False, True, True, False, True]
     [False]
@@ -306,12 +330,12 @@ for each input we have three boolean values associated with it that define addit
 3. **lists** - As the name suggests, we use it to generate lists composed of anything, as specified by the user. For example
 in `test_device`_ file, it is used to generate a list of array_shapes, in `test_manipulation`_, it is used to generate a list
 of common_shapes, and more in `test_layers`_. The function takes in 3 arguments, first is the strategy by which the elements
-are to be generated, in majority of the cases this is **st.integers**, with range specified, and the other arguments are
+are to be generated, in majority of the cases this is **helpers.ints**, with range specified, and the other arguments are
 sequence arguments as specified in **array_dtypes**. For example -:
 
 .. code-block:: python
 
-    print_hypothesis_examples(lists(st.integers(1,6), min_size = 0,max_size = 5))
+    print_hypothesis_examples(lists(helpers.ints(min_value=1, max_value=6), min_size = 0,max_size = 5))
 
     [2, 5, 6]
     [1]
@@ -322,14 +346,14 @@ The generated values are then passed to the array creation functions inside the 
 
 .. code-block:: python
 
-    print_hypothesis_examples(valid_axes(st.integers(2,3), size_bounds = [1,3]))
+    print_hypothesis_examples(valid_axes(helpers.ints(min_value=2, max_value=3), size_bounds = [1,3]))
 
     (-3, 1, -1)
     (1, -2)
 
 It should be used in functions which expect axes as a required or an optional argument.
 
-5. **integers** - This is similar to the *st.integers* strategy, with the only difference being that here the range can
+5. **integers** - This is similar to the *helpers.ints* strategy, with the only difference being that here the range can
 either be specified manually, or a shared key can be provided. The way shared keys work has been discussed in the
 *Important Strategies* sections above.
 
@@ -517,6 +541,15 @@ f. If you find yourself using repeating some logic which is specific to a partic
    helper function and add this to the submodule.
 g. If the logic is general enough, this can instead be added to the :code:`helpers.py` file, enabling it to be used for tests
    in other submodules
+h. Sometimes, the use of
+   `assume <https://hypothesis.readthedocs.io/en/latest/details.html?highlight=assume#hypothesis.assume>`_
+   is justified in the unit test body, particularly for cases where writing the
+   generation code would be unduly laborious. It's very straightforward to avoid
+   :code:`nan`, :code:`inf` and values close to the :code:`dtype` bounds, but also
+   avoiding zeros would require extra implementational effort in the data generation
+   helpers. Using :code:`assume` is an
+   `acceptable solution <https://github.com/unifyai/ivy/blob/2ddaff94ad9e20a1a0511d272a0501fa3b904edc/ivy_tests/test_ivy/test_functional/test_core/test_elementwise.py#L695>`_
+   in such cases, and other similar scenarios you may encounter.
 
 
 Bonus: Hypothesis' Extended Features
@@ -587,19 +620,19 @@ and a variety performance details are supported. Let’s look at the function `t
 This test runs for every backend, and the output is shown below-:
 
 * **Jax**
-.. image:: https://github.com/unifyai/ivy/blob/master/.idea/Jax.png
+.. image:: https://raw.githubusercontent.com/unifyai/unifyai.github.io/master/img/externally_linked/Jax_data_gen.png
    :width: 600
 
 * **Numpy**
-.. image:: https://github.com/unifyai/ivy/blob/master/.idea/numpy.png
+.. image:: https://raw.githubusercontent.com/unifyai/unifyai.github.io/master/img/externally_linked/numpy_data_gen.png
    :width: 600
 
 * **Tensorflow**
-.. image:: https://github.com/unifyai/ivy/blob/master/.idea/tensorflow.png
+.. image:: https://raw.githubusercontent.com/unifyai/unifyai.github.io/master/img/externally_linked/tensorflow_data_gen.png
    :width: 600
 
 * **Torch**
-.. image:: https://github.com/unifyai/ivy/blob/master/.idea/torch.png
+.. image:: https://raw.githubusercontent.com/unifyai/unifyai.github.io/master/img/externally_linked/torch_data_gen.png
    :width: 600
 
 
@@ -612,7 +645,7 @@ examples from previous runs are displayed.
 Another argument which can be specified for a more detailed output is **hypothesis-verbosity = verbose**. Let’s look at
 the newer output, for the same example -:
 
-.. image:: https://github.com/unifyai/ivy/blob/master/.idea/test_run.png
+.. image:: https://raw.githubusercontent.com/unifyai/unifyai.github.io/master/img/externally_linked/test_run_data_gen.png
    :width: 600
 
 Like the output above, Hypothesis will print all the examples for which the test failed, when **verbosity** is set.
@@ -620,11 +653,11 @@ Like the output above, Hypothesis will print all the examples for which the test
 
 3. Some performance related settings which might be helpful to know are-:
 
-* **max_examples** - The number of valid examples Hypothesis will run. It usually defaults to 100. Turning it up or down
-		     will have an impact on the speed as well as the rigorousness of the tests.
+a. **max_examples** - The number of valid examples Hypothesis will run. It usually defaults to 100. Turning it up or down
+                      will have an impact on the speed as well as the rigorousness of the tests.
 
-* **deadline** - If an input takes longer than expected, it should be treated as an error. It is useful to detect weird
-		 performance issues.
+b. **deadline** - If an input takes longer than expected, it should be treated as an error. It is useful to detect weird
+                  performance issues.
 
 Self-Consistent and Explicit Testing
 ------------------------------------
@@ -674,6 +707,45 @@ then we should not use the helper :code:`test_array_function`.
 For example, :code:`ivy.num_gpus` does not receive any arrays in the input,
 and so we should not make us of :code:`test_array_function` in the test implementation.
 
+Re-Running Failed Ivy Tests
+---------------------------
+
+When a hypothesis test fails, the falsifying example is printed on the console by Hypothesis.
+For example, in the :code:`test_result_type` Test, we find the following output on running the test:
+
+.. code-block::
+
+        Falsifying example: test_result_type(
+            dtype_and_x=(['bfloat16', 'int16'], [-0.9090909090909091, -1]),
+            as_variable=False,
+            num_positional_args=2,
+            native_array=False,
+            container=False,
+            instance_method=False,
+            fw='torch',
+        )
+
+It is always efficient to fix this particular example first, before running any other examples.
+In order to achieve this functionality, we can use the :code:`@example` Hypothesis decorator.
+The :code:`@example` decorator ensures that a specific example is always tested, on running a particular test. The decorator requires the test arguments as parameters.
+For the :code:`test_result_type` Test, we can add the decorator as follows:
+
+.. code-block::
+
+        @example(
+            dtype_and_x=(['bfloat16', 'int16'], [-0.9090909090909091, -1]),
+            as_variable=False,
+            num_positional_args=2,
+            native_array=False,
+            container=False,
+            instance_method=False,
+            fw='torch',
+        )
+
+This ensures that the given example is always tested while running the test, allowing one to debug the failure
+efficiently.
+
+
 **Round Up**
 
 This should have hopefully given you a good feel for how the tests are implemented in Ivy.
@@ -681,3 +753,12 @@ This should have hopefully given you a good feel for how the tests are implement
 If you're ever unsure of how best to proceed,
 please feel free to engage with the `ivy tests discussion`_,
 or reach out on `discord`_ in the `ivy tests channel`_!
+
+
+**Video**
+
+.. raw:: html
+
+    <iframe width="420" height="315"
+    src="https://www.youtube.com/embed/E6WgGp2_e5E" class="video">
+    </iframe>
