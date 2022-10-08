@@ -21,7 +21,7 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Initializers" href="../../../stateful/initializers.html" />
+    <link rel="next" title="Container" href="../../container.html" />
     <link rel="prev" title="Wrapping" href="../wrapping.html" /> 
 </head>
 
@@ -79,7 +79,6 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Data Classes</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../container.html">Container</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../array.html">Array</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../activations.html">Activations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../conversions.html">Conversions</a></li>
@@ -87,6 +86,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../data_type.html">Data type</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../device.html">Device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../elementwise.html">Elementwise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extensions.html">Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general.html">General</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../gradients.html">Gradients</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../image.html">Image</a></li>
@@ -107,17 +107,18 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../container.html">Container</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Framework Classes</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../stateful/initializers.html">Initializers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../stateful/converters.html">Converters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../stateful/optimizers.html">Optimizers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../stateful/module.html">Module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../stateful/layers.html">Layers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../stateful/norms.html">Norms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../stateful/activations.html">Activations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../stateful/sequential.html">Sequential</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../stateful/activations.html">Activations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../stateful/module.html">Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../stateful/optimizers.html">Optimizers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../stateful/norms.html">Norms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../stateful/layers.html">Layers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../stateful/initializers.html">Initializers</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Docs</span></p>
 <ul>
@@ -170,7 +171,7 @@ the module functions to ivy arrays as instance methods using _wrap_function.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>cls</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code>]) – the class we want to add the instance methods to.</p></li>
 <li><p><strong>modules</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">module</span></code>]) – the modules to loop over: activations, general etc.</p></li>
-<li><p><strong>to_ignore</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code>]) – any items we don’t want to add an instance method for. (default: <code class="docutils literal notranslate"><span class="pre">()</span></code>)</p></li>
+<li><p><strong>to_ignore</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code>) – any items we don’t want to add an instance method for. (default: <code class="docutils literal notranslate"><span class="pre">()</span></code>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -198,7 +199,7 @@ the activations module as instance methods to our toy <cite>ArrayExample</cite> 
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../wrapping.html" class="btn btn-neutral float-left" title="Wrapping" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../../../stateful/initializers.html" class="btn btn-neutral float-right" title="Initializers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../../container.html" class="btn btn-neutral float-right" title="Container" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

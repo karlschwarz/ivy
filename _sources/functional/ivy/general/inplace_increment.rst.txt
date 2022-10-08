@@ -4,6 +4,10 @@ inplace_increment
 .. autofunction:: ivy.functional.ivy.general.inplace_increment
 
 .. autofunction:: ivy.array.array_methods.inplace_increment
+
+.. autofunction:: ivy.container.container_methods.static_inplace_increment
+
+.. autofunction:: ivy.container.container_methods.inplace_increment
 |
 | **Supported Frameworks:**
 
@@ -32,4 +36,6 @@ inplace_increment
 
    inplace_increment/inplace_increment_functional.rst
    inplace_increment/inplace_increment_array.rst
+   inplace_increment/inplace_increment_container.rst
+   inplace_increment/static_inplace_increment_container.rst
 

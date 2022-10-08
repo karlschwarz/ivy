@@ -76,19 +76,19 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Data Classes</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../data_classes/container.html">Container</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../data_classes/array.html">Array</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_classes/container.html">Container</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Framework Classes</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../stateful/initializers.html">Initializers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../stateful/converters.html">Converters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../stateful/optimizers.html">Optimizers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../stateful/module.html">Module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../stateful/layers.html">Layers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../stateful/norms.html">Norms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../stateful/activations.html">Activations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../stateful/sequential.html">Sequential</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../stateful/activations.html">Activations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../stateful/module.html">Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../stateful/optimizers.html">Optimizers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../stateful/norms.html">Norms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../stateful/layers.html">Layers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../stateful/initializers.html">Initializers</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Docs</span></p>
 <ul>
@@ -134,12 +134,27 @@
 <span class="kn">import</span> <span class="nn">ivy</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span>
 <span class="kn">from</span> <span class="nn">ivy.func_wrapper</span> <span class="kn">import</span> <span class="n">handle_nestable</span>
+<span class="kn">from</span> <span class="nn">ivy.exceptions</span> <span class="kn">import</span> <span class="n">handle_exceptions</span>
+
+<span class="c1"># Helpers #</span>
+<span class="c1"># ------- #</span>
+
+
+<span class="k">def</span> <span class="nf">_reduce_loss</span><span class="p">(</span><span class="n">red</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">out</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">red</span> <span class="o">==</span> <span class="s2">&quot;sum&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">ivy</span><span class="o">.</span><span class="n">negative</span><span class="p">(</span><span class="n">ivy</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">),</span> <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">red</span> <span class="o">==</span> <span class="s2">&quot;mean&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">ivy</span><span class="o">.</span><span class="n">negative</span><span class="p">(</span><span class="n">ivy</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">),</span> <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">ivy</span><span class="o">.</span><span class="n">negative</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">)</span>
+
 
 <span class="c1"># Extra #</span>
 <span class="c1"># ------#</span>
 
 
-<div class="viewcode-block" id="cross_entropy"><a class="viewcode-back" href="../../../../functional/ivy/losses/cross_entropy/cross_entropy_functional.html#ivy.functional.ivy.losses.cross_entropy">[docs]</a><span class="nd">@handle_nestable</span>
+<div class="viewcode-block" id="cross_entropy"><a class="viewcode-back" href="../../../../functional/ivy/losses/cross_entropy/cross_entropy_functional.html#ivy.functional.ivy.losses.cross_entropy">[docs]</a><span class="nd">handle_nestable</span>
+<span class="nd">handle_exceptions</span>
 <span class="k">def</span> <span class="nf">cross_entropy</span><span class="p">(</span>
     <span class="n">true</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">],</span>
     <span class="n">pred</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">],</span>
@@ -147,6 +162,7 @@
     <span class="o">*</span><span class="p">,</span>
     <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
     <span class="n">epsilon</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-7</span><span class="p">,</span>
+    <span class="n">reduction</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;sum&quot;</span><span class="p">,</span>
     <span class="n">out</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Computes cross-entropy between predicted and true discrete distributions.</span>
@@ -184,21 +200,21 @@
 <span class="sd">    ivy.array(0.35667497)</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ivy</span><span class="o">.</span><span class="n">assertions</span><span class="o">.</span><span class="n">check_elem_in_list</span><span class="p">(</span><span class="n">reduction</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="s2">&quot;sum&quot;</span><span class="p">,</span> <span class="s2">&quot;mean&quot;</span><span class="p">])</span>
     <span class="n">pred</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">epsilon</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">epsilon</span><span class="p">)</span>
     <span class="n">log_pred</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">pred</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">ivy</span><span class="o">.</span><span class="n">negative</span><span class="p">(</span><span class="n">ivy</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">log_pred</span> <span class="o">*</span> <span class="n">true</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">),</span> <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">_reduce_loss</span><span class="p">(</span><span class="n">reduction</span><span class="p">,</span> <span class="n">log_pred</span> <span class="o">*</span> <span class="n">true</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span></div>
 
 
-<span class="n">cross_entropy</span><span class="o">.</span><span class="n">unsupported_dtypes</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;torch&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;float16&quot;</span><span class="p">,)}</span>
-
-
-<div class="viewcode-block" id="binary_cross_entropy"><a class="viewcode-back" href="../../../../functional/ivy/losses/binary_cross_entropy/binary_cross_entropy_functional.html#ivy.functional.ivy.losses.binary_cross_entropy">[docs]</a><span class="nd">@handle_nestable</span>
+<div class="viewcode-block" id="binary_cross_entropy"><a class="viewcode-back" href="../../../../functional/ivy/losses/binary_cross_entropy/binary_cross_entropy_functional.html#ivy.functional.ivy.losses.binary_cross_entropy">[docs]</a><span class="nd">handle_nestable</span>
+<span class="nd">handle_exceptions</span>
 <span class="k">def</span> <span class="nf">binary_cross_entropy</span><span class="p">(</span>
     <span class="n">true</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">],</span>
     <span class="n">pred</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">],</span>
     <span class="o">/</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">epsilon</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-7</span><span class="p">,</span>
+    <span class="n">reduction</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;none&quot;</span><span class="p">,</span>
     <span class="n">out</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Computes the binary cross entropy loss.</span>
@@ -225,7 +241,7 @@
 <span class="sd">    Functional Examples</span>
 <span class="sd">    -------------------</span>
 
-<span class="sd">    With :code:`ivy.Array` input:</span>
+<span class="sd">    With :class:`ivy.Array` input:</span>
 
 <span class="sd">    &gt;&gt;&gt; x = ivy.array([0, 1, 0, 0])</span>
 <span class="sd">    &gt;&gt;&gt; y = ivy.array([0.2, 0.8, 0.3, 0.8])</span>
@@ -239,7 +255,7 @@
 <span class="sd">    &gt;&gt;&gt; print(z)</span>
 <span class="sd">    ivy.array([[0.916,1.61,1.2,0.357]])</span>
 
-<span class="sd">    With :code:`ivy.NativeArray` input:</span>
+<span class="sd">    With :class:`ivy.NativeArray` input:</span>
 
 <span class="sd">    &gt;&gt;&gt; x = ivy.native_array([0, 1, 0, 1])</span>
 <span class="sd">    &gt;&gt;&gt; y = ivy.native_array([0.2, 0.7, 0.2, 0.6])</span>
@@ -247,7 +263,7 @@
 <span class="sd">    &gt;&gt;&gt; print(z)</span>
 <span class="sd">    ivy.array([0.223,0.357,0.223,0.511])</span>
 
-<span class="sd">    With a mix of :code:`ivy.Array` and :code:`ivy.NativeArray` inputs:</span>
+<span class="sd">    With a mix of :class:`ivy.Array` and :class:`ivy.NativeArray` inputs:</span>
 
 <span class="sd">    &gt;&gt;&gt; x = ivy.array([0, 0, 1, 1])</span>
 <span class="sd">    &gt;&gt;&gt; y = ivy.native_array([0.1, 0.2, 0.8, 0.6])</span>
@@ -255,7 +271,7 @@
 <span class="sd">    &gt;&gt;&gt; print(z)</span>
 <span class="sd">    ivy.array([0.105,0.223,0.223,0.511])</span>
 
-<span class="sd">    With :code:`ivy.Container` input:</span>
+<span class="sd">    With :class:`ivy.Container` input:</span>
 
 <span class="sd">    &gt;&gt;&gt; x = ivy.Container(a=ivy.array([1, 0, 0]),b=ivy.array([0, 0, 1]))</span>
 <span class="sd">    &gt;&gt;&gt; y = ivy.Container(a=ivy.array([0.6, 0.2, 0.3]),b=ivy.array([0.8, 0.2, 0.2]))</span>
@@ -263,7 +279,7 @@
 <span class="sd">    &gt;&gt;&gt; print(z)</span>
 <span class="sd">    {a:ivy.array([0.511,0.223,0.357]),b:ivy.array([1.61,0.223,1.61])}</span>
 
-<span class="sd">    With a mix of :code:`ivy.Array` and :code:`ivy.Container` inputs:</span>
+<span class="sd">    With a mix of :class:`ivy.Array` and :class:`ivy.Container` inputs:</span>
 
 <span class="sd">    &gt;&gt;&gt; x = ivy.array([1 , 1, 0])</span>
 <span class="sd">    &gt;&gt;&gt; y = ivy.Container(a=ivy.array([0.7, 0.8, 0.2]))</span>
@@ -276,7 +292,7 @@
 <span class="sd">    Instance Method Examples</span>
 <span class="sd">    ------------------------</span>
 
-<span class="sd">    Using :code:`ivy.Array` instance method:</span>
+<span class="sd">    Using :class:`ivy.Array` instance method:</span>
 
 <span class="sd">    &gt;&gt;&gt; x = ivy.array([1, 0, 0, 0])</span>
 <span class="sd">    &gt;&gt;&gt; y = ivy.array([0.8, 0.2, 0.2, 0.2])</span>
@@ -285,17 +301,18 @@
 <span class="sd">    ivy.array([0.223, 0.223, 0.223, 0.223])</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ivy</span><span class="o">.</span><span class="n">assertions</span><span class="o">.</span><span class="n">check_elem_in_list</span><span class="p">(</span><span class="n">reduction</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="s2">&quot;sum&quot;</span><span class="p">,</span> <span class="s2">&quot;mean&quot;</span><span class="p">])</span>
     <span class="n">pred</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">epsilon</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">epsilon</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">ivy</span><span class="o">.</span><span class="n">negative</span><span class="p">(</span>
+    <span class="k">return</span> <span class="n">_reduce_loss</span><span class="p">(</span>
+        <span class="n">reduction</span><span class="p">,</span>
         <span class="n">ivy</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ivy</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">pred</span><span class="p">)</span> <span class="o">*</span> <span class="n">true</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pred</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">true</span><span class="p">),</span> <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">),</span>
-        <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">,</span>
+        <span class="kc">None</span><span class="p">,</span>
+        <span class="n">out</span><span class="p">,</span>
     <span class="p">)</span></div>
 
 
-<span class="n">binary_cross_entropy</span><span class="o">.</span><span class="n">unsupported_dtypes</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;torch&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;float16&quot;</span><span class="p">,)}</span>
-
-
-<div class="viewcode-block" id="sparse_cross_entropy"><a class="viewcode-back" href="../../../../functional/ivy/losses/sparse_cross_entropy/sparse_cross_entropy_functional.html#ivy.functional.ivy.losses.sparse_cross_entropy">[docs]</a><span class="nd">@handle_nestable</span>
+<div class="viewcode-block" id="sparse_cross_entropy"><a class="viewcode-back" href="../../../../functional/ivy/losses/sparse_cross_entropy/sparse_cross_entropy_functional.html#ivy.functional.ivy.losses.sparse_cross_entropy">[docs]</a><span class="nd">handle_nestable</span>
+<span class="nd">handle_exceptions</span>
 <span class="k">def</span> <span class="nf">sparse_cross_entropy</span><span class="p">(</span>
     <span class="n">true</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">],</span>
     <span class="n">pred</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">],</span>
@@ -303,6 +320,7 @@
     <span class="o">*</span><span class="p">,</span>
     <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
     <span class="n">epsilon</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-7</span><span class="p">,</span>
+    <span class="n">reduction</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;sum&quot;</span><span class="p">,</span>
     <span class="n">out</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Computes sparse cross entropy between logits and labels.</span>
@@ -331,7 +349,7 @@
 <span class="sd">    Functional Examples</span>
 <span class="sd">    -------------------</span>
 
-<span class="sd">    With :code:`ivy.Array` input:</span>
+<span class="sd">    With :class:`ivy.Array` input:</span>
 
 <span class="sd">    &gt;&gt;&gt; x = ivy.array([2])</span>
 <span class="sd">    &gt;&gt;&gt; y = ivy.array([0.1, 0.1, 0.7, 0.1])</span>
@@ -348,14 +366,14 @@
 <span class="sd">     &gt;&gt;&gt; print(ivy.cross_entropy(x, y))</span>
 <span class="sd">     ivy.array(11.512926)</span>
 
-<span class="sd">     With :code:`ivy.NativeArray` input:</span>
+<span class="sd">     With :class:`ivy.NativeArray` input:</span>
 
 <span class="sd">     &gt;&gt;&gt; x = ivy.native_array([4])</span>
 <span class="sd">     &gt;&gt;&gt; y = ivy.native_array([0.1, 0.2, 0.1, 0.1, 0.5])</span>
 <span class="sd">     &gt;&gt;&gt; print(ivy.sparse_cross_entropy(x, y))</span>
 <span class="sd">     ivy.array([0.693])</span>
 
-<span class="sd">     With :code:`ivy.Container` input:</span>
+<span class="sd">     With :class:`ivy.Container` input:</span>
 
 <span class="sd">     &gt;&gt;&gt; x = ivy.Container(a=ivy.array([4]))</span>
 <span class="sd">     &gt;&gt;&gt; y = ivy.Container(a=ivy.array([0.1, 0.2, 0.1, 0.1, 0.5]))</span>
@@ -364,14 +382,14 @@
 <span class="sd">         a: ivy.array([0.693])</span>
 <span class="sd">     }</span>
 
-<span class="sd">     With a mix of :code:`ivy.Array` and :code:`ivy.NativeArray` inputs:</span>
+<span class="sd">     With a mix of :class:`ivy.Array` and :class:`ivy.NativeArray` inputs:</span>
 
 <span class="sd">     &gt;&gt;&gt; x = ivy.array([0])</span>
 <span class="sd">     &gt;&gt;&gt; y = ivy.native_array([0.1, 0.2, 0.6, 0.1])</span>
 <span class="sd">     &gt;&gt;&gt; print(ivy.sparse_cross_entropy(x,y))</span>
 <span class="sd">     ivy.array([2.3])</span>
 
-<span class="sd">     With a mix of :code:`ivy.Array` and :code:`ivy.Container` inputs:</span>
+<span class="sd">     With a mix of :class:`ivy.Array` and :class:`ivy.Container` inputs:</span>
 
 <span class="sd">     &gt;&gt;&gt; x = ivy.array([0])</span>
 <span class="sd">     &gt;&gt;&gt; y = ivy.Container(a=ivy.array([0.1, 0.2, 0.6, 0.1]))</span>
@@ -383,14 +401,14 @@
 <span class="sd">     Instance Method Examples</span>
 <span class="sd">     ------------------------</span>
 
-<span class="sd">     With :code:`ivy.Array` input:</span>
+<span class="sd">     With :class:`ivy.Array` input:</span>
 
 <span class="sd">     &gt;&gt;&gt; x = ivy.array([2])</span>
 <span class="sd">     &gt;&gt;&gt; y = ivy.array([0.1, 0.1, 0.7, 0.1])</span>
 <span class="sd">     &gt;&gt;&gt; print(x.sparse_cross_entropy(y))</span>
 <span class="sd">     ivy.array([0.357])</span>
 
-<span class="sd">     With :code:`ivy.Container` input:</span>
+<span class="sd">     With :class:`ivy.Container` input:</span>
 
 <span class="sd">     &gt;&gt;&gt; x = ivy.Container(a=ivy.array([2]))</span>
 <span class="sd">     &gt;&gt;&gt; y = ivy.Container(a=ivy.array([0.1, 0.1, 0.7, 0.1]))</span>
@@ -400,12 +418,11 @@
 <span class="sd">     }</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ivy</span><span class="o">.</span><span class="n">assertions</span><span class="o">.</span><span class="n">check_elem_in_list</span><span class="p">(</span><span class="n">reduction</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="s2">&quot;sum&quot;</span><span class="p">,</span> <span class="s2">&quot;mean&quot;</span><span class="p">])</span>
     <span class="n">true</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">one_hot</span><span class="p">(</span><span class="n">true</span><span class="p">,</span> <span class="n">pred</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="n">axis</span><span class="p">])</span>
-    <span class="k">return</span> <span class="n">ivy</span><span class="o">.</span><span class="n">cross_entropy</span><span class="p">(</span><span class="n">true</span><span class="p">,</span> <span class="n">pred</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="n">epsilon</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">)</span></div>
-
-
-<span class="n">sparse_cross_entropy</span><span class="o">.</span><span class="n">unsupported_dtypes</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;torch&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;float16&quot;</span><span class="p">,)}</span>
-<span class="n">sparse_cross_entropy</span><span class="o">.</span><span class="n">supported_dtypes</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;tensorflow&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;uint8&quot;</span><span class="p">,</span> <span class="s2">&quot;int32&quot;</span><span class="p">,</span> <span class="s2">&quot;int64&quot;</span><span class="p">)}</span>
+    <span class="k">return</span> <span class="n">ivy</span><span class="o">.</span><span class="n">cross_entropy</span><span class="p">(</span>
+        <span class="n">true</span><span class="p">,</span> <span class="n">pred</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="n">epsilon</span><span class="p">,</span> <span class="n">reduction</span><span class="o">=</span><span class="n">reduction</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">out</span>
+    <span class="p">)</span></div>
 </pre></div>
 
            </div>

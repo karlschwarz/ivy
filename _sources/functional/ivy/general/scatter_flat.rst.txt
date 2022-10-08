@@ -4,6 +4,10 @@ scatter_flat
 .. autofunction:: ivy.functional.ivy.general.scatter_flat
 
 .. autofunction:: ivy.array.array_methods.scatter_flat
+
+.. autofunction:: ivy.container.container_methods.static_scatter_flat
+
+.. autofunction:: ivy.container.container_methods.scatter_flat
 |
 | **Supported Frameworks:**
 
@@ -32,4 +36,6 @@ scatter_flat
 
    scatter_flat/scatter_flat_functional.rst
    scatter_flat/scatter_flat_array.rst
+   scatter_flat/scatter_flat_container.rst
+   scatter_flat/static_scatter_flat_container.rst
 

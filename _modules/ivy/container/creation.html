@@ -76,19 +76,19 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Data Classes</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../data_classes/container.html">Container</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../data_classes/array.html">Array</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_classes/container.html">Container</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Framework Classes</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../stateful/initializers.html">Initializers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../stateful/converters.html">Converters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../stateful/optimizers.html">Optimizers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../stateful/module.html">Module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../stateful/layers.html">Layers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../stateful/norms.html">Norms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../stateful/activations.html">Activations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../stateful/sequential.html">Sequential</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../stateful/activations.html">Activations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../stateful/module.html">Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../stateful/optimizers.html">Optimizers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../stateful/norms.html">Norms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../stateful/layers.html">Layers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../stateful/initializers.html">Initializers</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Docs</span></p>
 <ul>
@@ -129,7 +129,7 @@
              
   <h1>Source code for ivy.container.creation</h1><div class="highlight"><pre>
 <span></span><span class="c1"># global</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Sequence</span>
 <span class="kn">from</span> <span class="nn">numbers</span> <span class="kn">import</span> <span class="n">Number</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
@@ -140,7 +140,7 @@
 
 <span class="c1"># noinspection PyMissingConstructor</span>
 <div class="viewcode-block" id="ContainerWithCreation"><a class="viewcode-back" href="../../../data_classes/container/creation/ContainerWithCreation.html#ivy.container.creation.ContainerWithCreation">[docs]</a><span class="k">class</span> <span class="nc">ContainerWithCreation</span><span class="p">(</span><span class="n">ContainerBase</span><span class="p">):</span>
-<div class="viewcode-block" id="ContainerWithCreation.static_arange"><a class="viewcode-back" href="../../../data_classes/container/creation/ContainerWithCreation.html#ivy.container.creation.ContainerWithCreation.static_arange">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ContainerWithCreation.static_arange"><a class="viewcode-back" href="../../../data_classes/container/creation/ContainerWithCreation.html#ivy.container.creation.ContainerWithCreation.static_arange">[docs]</a>    <span class="nd">staticmethod</span>
     <span class="k">def</span> <span class="nf">static_arange</span><span class="p">(</span>
         <span class="n">start</span><span class="p">:</span> <span class="n">Number</span><span class="p">,</span>
         <span class="o">/</span><span class="p">,</span>
@@ -169,7 +169,7 @@
             <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="ContainerWithCreation.static_asarray"><a class="viewcode-back" href="../../../data_classes/container/creation/ContainerWithCreation.html#ivy.container.creation.ContainerWithCreation.static_asarray">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ContainerWithCreation.static_asarray"><a class="viewcode-back" href="../../../data_classes/container/creation/ContainerWithCreation.html#ivy.container.creation.ContainerWithCreation.static_asarray">[docs]</a>    <span class="nd">staticmethod</span>
     <span class="k">def</span> <span class="nf">static_asarray</span><span class="p">(</span>
         <span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span>
             <span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span>
@@ -193,19 +193,19 @@
         <span class="k">return</span> <span class="n">ContainerBase</span><span class="o">.</span><span class="n">multi_map_in_static_method</span><span class="p">(</span>
             <span class="s2">&quot;asarray&quot;</span><span class="p">,</span>
             <span class="n">x</span><span class="p">,</span>
-            <span class="n">copy</span><span class="p">,</span>
-            <span class="n">key_chains</span><span class="p">,</span>
-            <span class="n">to_apply</span><span class="p">,</span>
-            <span class="n">prune_unapplied</span><span class="p">,</span>
-            <span class="n">map_sequences</span><span class="p">,</span>
-            <span class="n">out</span><span class="p">,</span>
+            <span class="n">key_chains</span><span class="o">=</span><span class="n">key_chains</span><span class="p">,</span>
+            <span class="n">to_apply</span><span class="o">=</span><span class="n">to_apply</span><span class="p">,</span>
+            <span class="n">prune_unapplied</span><span class="o">=</span><span class="n">prune_unapplied</span><span class="p">,</span>
+            <span class="n">map_sequences</span><span class="o">=</span><span class="n">map_sequences</span><span class="p">,</span>
+            <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">,</span>
+            <span class="n">copy</span><span class="o">=</span><span class="n">copy</span><span class="p">,</span>
             <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span>
             <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="ContainerWithCreation.static_zeros"><a class="viewcode-back" href="../../../data_classes/container/creation/ContainerWithCreation.html#ivy.container.creation.ContainerWithCreation.static_zeros">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ContainerWithCreation.static_zeros"><a class="viewcode-back" href="../../../data_classes/container/creation/ContainerWithCreation.html#ivy.container.creation.ContainerWithCreation.static_zeros">[docs]</a>    <span class="nd">staticmethod</span>
     <span class="k">def</span> <span class="nf">static_zeros</span><span class="p">(</span>
-        <span class="n">shape</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]],</span>
+        <span class="n">shape</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]],</span>
         <span class="o">/</span><span class="p">,</span>
         <span class="n">key_chains</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">to_apply</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
@@ -228,9 +228,9 @@
             <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="ContainerWithCreation.static_ones"><a class="viewcode-back" href="../../../data_classes/container/creation/ContainerWithCreation.html#ivy.container.creation.ContainerWithCreation.static_ones">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ContainerWithCreation.static_ones"><a class="viewcode-back" href="../../../data_classes/container/creation/ContainerWithCreation.html#ivy.container.creation.ContainerWithCreation.static_ones">[docs]</a>    <span class="nd">staticmethod</span>
     <span class="k">def</span> <span class="nf">static_ones</span><span class="p">(</span>
-        <span class="n">shape</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]],</span>
+        <span class="n">shape</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]],</span>
         <span class="o">/</span><span class="p">,</span>
         <span class="n">key_chains</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">to_apply</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
@@ -253,7 +253,7 @@
             <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="ContainerWithCreation.static_full_like"><a class="viewcode-back" href="../../../data_classes/container/creation/ContainerWithCreation.html#ivy.container.creation.ContainerWithCreation.static_full_like">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ContainerWithCreation.static_full_like"><a class="viewcode-back" href="../../../data_classes/container/creation/ContainerWithCreation.html#ivy.container.creation.ContainerWithCreation.static_full_like">[docs]</a>    <span class="nd">staticmethod</span>
     <span class="k">def</span> <span class="nf">static_full_like</span><span class="p">(</span>
         <span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="p">],</span>
         <span class="o">/</span><span class="p">,</span>
@@ -306,10 +306,11 @@
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
-<span class="sd">        With ivy.Container input</span>
+<span class="sd">        With :class:`ivy.Container` input:</span>
+
 <span class="sd">        &gt;&gt;&gt; x = ivy.Container(a = ivy.array([1,2,3]) ,b = ivy.array([4,5,6]))</span>
 <span class="sd">        &gt;&gt;&gt; fill_value = 10</span>
-<span class="sd">        &gt;&gt;&gt; y = ivy.Container.full_like(fill_value)</span>
+<span class="sd">        &gt;&gt;&gt; y = ivy.Container.static_full_like(fill_value)</span>
 <span class="sd">        {</span>
 <span class="sd">            a: ivy.array([10, 10, 10]),</span>
 <span class="sd">            b: ivy.array([10, 10, 10])</span>
@@ -318,7 +319,7 @@
 <span class="sd">        &gt;&gt;&gt; x = ivy.Container(a=ivy.array([1.2,2.2324,3.234]), \</span>
 <span class="sd">                               b=ivy.array([4.123,5.23,6.23]))</span>
 <span class="sd">        &gt;&gt;&gt; fill_value = 15.0</span>
-<span class="sd">        &gt;&gt;&gt; y = ivy.Container.full_like(fill_value)</span>
+<span class="sd">        &gt;&gt;&gt; y = ivy.Container.static_full_like(fill_value)</span>
 <span class="sd">        &gt;&gt;&gt; print(y)</span>
 <span class="sd">        {</span>
 <span class="sd">            a: ivy.array([15., 15., 15.]),</span>
@@ -390,7 +391,8 @@
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
-<span class="sd">        With ivy.Container input</span>
+<span class="sd">        With :class:`ivy.Container` input:</span>
+
 <span class="sd">        &gt;&gt;&gt; x = ivy.Container(a = ivy.array([1,2,3]) ,b = ivy.array([4,5,6]))</span>
 <span class="sd">        &gt;&gt;&gt; fill_value = 10</span>
 <span class="sd">        &gt;&gt;&gt; y = x.full_like(fill_value)</span>
@@ -421,7 +423,7 @@
             <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="ContainerWithCreation.static_ones_like"><a class="viewcode-back" href="../../../data_classes/container/creation/ContainerWithCreation.html#ivy.container.creation.ContainerWithCreation.static_ones_like">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ContainerWithCreation.static_ones_like"><a class="viewcode-back" href="../../../data_classes/container/creation/ContainerWithCreation.html#ivy.container.creation.ContainerWithCreation.static_ones_like">[docs]</a>    <span class="nd">staticmethod</span>
     <span class="k">def</span> <span class="nf">static_ones_like</span><span class="p">(</span>
         <span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="p">],</span>
         <span class="o">/</span><span class="p">,</span>
@@ -537,7 +539,7 @@
             <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="ContainerWithCreation.static_zeros_like"><a class="viewcode-back" href="../../../data_classes/container/creation/ContainerWithCreation.html#ivy.container.creation.ContainerWithCreation.static_zeros_like">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ContainerWithCreation.static_zeros_like"><a class="viewcode-back" href="../../../data_classes/container/creation/ContainerWithCreation.html#ivy.container.creation.ContainerWithCreation.static_zeros_like">[docs]</a>    <span class="nd">staticmethod</span>
     <span class="k">def</span> <span class="nf">static_zeros_like</span><span class="p">(</span>
         <span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="p">],</span>
         <span class="o">/</span><span class="p">,</span>
@@ -653,7 +655,7 @@
             <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="ContainerWithCreation.static_tril"><a class="viewcode-back" href="../../../data_classes/container/creation/ContainerWithCreation.html#ivy.container.creation.ContainerWithCreation.static_tril">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ContainerWithCreation.static_tril"><a class="viewcode-back" href="../../../data_classes/container/creation/ContainerWithCreation.html#ivy.container.creation.ContainerWithCreation.static_tril">[docs]</a>    <span class="nd">staticmethod</span>
     <span class="k">def</span> <span class="nf">static_tril</span><span class="p">(</span>
         <span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="p">],</span>
         <span class="o">/</span><span class="p">,</span>
@@ -697,7 +699,7 @@
             <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="ContainerWithCreation.static_triu"><a class="viewcode-back" href="../../../data_classes/container/creation/ContainerWithCreation.html#ivy.container.creation.ContainerWithCreation.static_triu">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ContainerWithCreation.static_triu"><a class="viewcode-back" href="../../../data_classes/container/creation/ContainerWithCreation.html#ivy.container.creation.ContainerWithCreation.static_triu">[docs]</a>    <span class="nd">staticmethod</span>
     <span class="k">def</span> <span class="nf">static_triu</span><span class="p">(</span>
         <span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="p">],</span>
         <span class="o">/</span><span class="p">,</span>
@@ -741,7 +743,7 @@
             <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="ContainerWithCreation.static_empty_like"><a class="viewcode-back" href="../../../data_classes/container/creation/ContainerWithCreation.html#ivy.container.creation.ContainerWithCreation.static_empty_like">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ContainerWithCreation.static_empty_like"><a class="viewcode-back" href="../../../data_classes/container/creation/ContainerWithCreation.html#ivy.container.creation.ContainerWithCreation.static_empty_like">[docs]</a>    <span class="nd">staticmethod</span>
     <span class="k">def</span> <span class="nf">static_empty_like</span><span class="p">(</span>
         <span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="p">],</span>
         <span class="o">/</span><span class="p">,</span>
@@ -789,12 +791,12 @@
             <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="ContainerWithCreation.static_eye"><a class="viewcode-back" href="../../../data_classes/container/creation/ContainerWithCreation.html#ivy.container.creation.ContainerWithCreation.static_eye">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ContainerWithCreation.static_eye"><a class="viewcode-back" href="../../../data_classes/container/creation/ContainerWithCreation.html#ivy.container.creation.ContainerWithCreation.static_eye">[docs]</a>    <span class="nd">staticmethod</span>
     <span class="k">def</span> <span class="nf">static_eye</span><span class="p">(</span>
         <span class="n">n_rows</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
         <span class="n">n_cols</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="o">/</span><span class="p">,</span>
-        <span class="n">k</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="n">k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
         <span class="n">key_chains</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">to_apply</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="n">prune_unapplied</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -818,7 +820,7 @@
             <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="ContainerWithCreation.static_linspace"><a class="viewcode-back" href="../../../data_classes/container/creation/ContainerWithCreation.html#ivy.container.creation.ContainerWithCreation.static_linspace">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ContainerWithCreation.static_linspace"><a class="viewcode-back" href="../../../data_classes/container/creation/ContainerWithCreation.html#ivy.container.creation.ContainerWithCreation.static_linspace">[docs]</a>    <span class="nd">staticmethod</span>
     <span class="k">def</span> <span class="nf">static_linspace</span><span class="p">(</span>
         <span class="n">start</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span>
         <span class="n">stop</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span>
@@ -851,10 +853,11 @@
             <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="ContainerWithCreation.static_meshgrid"><a class="viewcode-back" href="../../../data_classes/container/creation/ContainerWithCreation.html#ivy.container.creation.ContainerWithCreation.static_meshgrid">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ContainerWithCreation.static_meshgrid"><a class="viewcode-back" href="../../../data_classes/container/creation/ContainerWithCreation.html#ivy.container.creation.ContainerWithCreation.static_meshgrid">[docs]</a>    <span class="nd">staticmethod</span>
     <span class="k">def</span> <span class="nf">static_meshgrid</span><span class="p">(</span>
         <span class="o">*</span><span class="n">arrays</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Number</span><span class="p">],</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Number</span><span class="p">]],</span>
-        <span class="n">indexing</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;xy&quot;</span><span class="p">,</span>
+        <span class="n">sparse</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">indexing</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;xy&quot;</span><span class="p">,</span>
         <span class="n">key_chains</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">to_apply</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="n">prune_unapplied</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -864,6 +867,7 @@
         <span class="k">return</span> <span class="n">ContainerBase</span><span class="o">.</span><span class="n">multi_map_in_static_method</span><span class="p">(</span>
             <span class="s2">&quot;meshgrid&quot;</span><span class="p">,</span>
             <span class="o">*</span><span class="n">arrays</span><span class="p">,</span>
+            <span class="n">sparse</span><span class="p">,</span>
             <span class="n">indexing</span><span class="p">,</span>
             <span class="n">key_chains</span><span class="p">,</span>
             <span class="n">to_apply</span><span class="p">,</span>
@@ -876,7 +880,8 @@
         <span class="bp">self</span><span class="p">:</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="p">,</span>
         <span class="o">/</span><span class="p">,</span>
         <span class="o">*</span><span class="n">arrays</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Number</span><span class="p">],</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Number</span><span class="p">]],</span>
-        <span class="n">indexing</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;xy&quot;</span><span class="p">,</span>
+        <span class="n">sparse</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">indexing</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;xy&quot;</span><span class="p">,</span>
         <span class="n">key_chains</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">to_apply</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="n">prune_unapplied</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -888,6 +893,8 @@
                 <span class="k">lambda</span> <span class="n">x_</span><span class="p">:</span> <span class="n">ivy</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">([</span><span class="n">x_</span><span class="o">.</span><span class="n">_data</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">arrays</span><span class="p">))</span>
                 <span class="k">if</span> <span class="n">ivy</span><span class="o">.</span><span class="n">is_array</span><span class="p">(</span><span class="n">x_</span><span class="p">)</span>
                 <span class="k">else</span> <span class="n">x_</span><span class="p">,</span>
+                <span class="n">sparse</span><span class="p">,</span>
+                <span class="n">indexing</span><span class="p">,</span>
                 <span class="n">key_chains</span><span class="p">,</span>
                 <span class="n">to_apply</span><span class="p">,</span>
                 <span class="n">prune_unapplied</span><span class="p">,</span>
@@ -896,7 +903,7 @@
             <span class="n">out</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="ContainerWithCreation.static_from_dlpack"><a class="viewcode-back" href="../../../data_classes/container/creation/ContainerWithCreation.html#ivy.container.creation.ContainerWithCreation.static_from_dlpack">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ContainerWithCreation.static_from_dlpack"><a class="viewcode-back" href="../../../data_classes/container/creation/ContainerWithCreation.html#ivy.container.creation.ContainerWithCreation.static_from_dlpack">[docs]</a>    <span class="nd">staticmethod</span>
     <span class="k">def</span> <span class="nf">static_from_dlpack</span><span class="p">(</span>
         <span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">],</span>
         <span class="o">/</span><span class="p">,</span>
@@ -936,7 +943,7 @@
             <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="ContainerWithCreation.static_native_array"><a class="viewcode-back" href="../../../data_classes/container/creation/ContainerWithCreation.html#ivy.container.creation.ContainerWithCreation.static_native_array">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ContainerWithCreation.static_native_array"><a class="viewcode-back" href="../../../data_classes/container/creation/ContainerWithCreation.html#ivy.container.creation.ContainerWithCreation.static_native_array">[docs]</a>    <span class="nd">staticmethod</span>
     <span class="k">def</span> <span class="nf">static_native_array</span><span class="p">(</span>
         <span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span>
             <span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span>
@@ -991,7 +998,7 @@
             <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="ContainerWithCreation.static_logspace"><a class="viewcode-back" href="../../../data_classes/container/creation/ContainerWithCreation.html#ivy.container.creation.ContainerWithCreation.static_logspace">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ContainerWithCreation.static_logspace"><a class="viewcode-back" href="../../../data_classes/container/creation/ContainerWithCreation.html#ivy.container.creation.ContainerWithCreation.static_logspace">[docs]</a>    <span class="nd">staticmethod</span>
     <span class="k">def</span> <span class="nf">static_logspace</span><span class="p">(</span>
         <span class="n">start</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span>
         <span class="n">stop</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span>
@@ -1022,6 +1029,143 @@
             <span class="n">map_sequences</span><span class="p">,</span>
             <span class="n">out</span><span class="p">,</span>
             <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="ContainerWithCreation.static_one_hot"><a class="viewcode-back" href="../../../data_classes/container/creation/ContainerWithCreation.html#ivy.container.creation.ContainerWithCreation.static_one_hot">[docs]</a>    <span class="nd">staticmethod</span>
+    <span class="k">def</span> <span class="nf">static_one_hot</span><span class="p">(</span>
+        <span class="n">indices</span><span class="p">:</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="p">,</span>
+        <span class="n">depth</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="o">/</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">on_value</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Number</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">off_value</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Number</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">axis</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">dtype</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Dtype</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeDtype</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">key_chains</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">to_apply</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">prune_unapplied</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">map_sequences</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">out</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        ivy.Container static method variant of ivy.one_hot. This method</span>
+<span class="sd">        simply wraps the function, and so the docstring for ivy.one_hot</span>
+<span class="sd">        also applies to this method with minimal changes.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        indices</span>
+<span class="sd">            Indices for where the ones should be scattered *[batch_shape, dim]*</span>
+<span class="sd">        depth</span>
+<span class="sd">            Scalar defining the depth of the one-hot dimension.</span>
+<span class="sd">        on_value</span>
+<span class="sd">            Value to fill in output when indices[j] = i. If None, defaults to 1.</span>
+<span class="sd">        off_value</span>
+<span class="sd">            Value to fill in output when indices[j] != i. If None, defaults to 0.</span>
+<span class="sd">        axis</span>
+<span class="sd">            Axis to scatter on. The default is -1, a new inner-most axis is created.</span>
+<span class="sd">        dtype</span>
+<span class="sd">            The data type of the output tensor. If None, defaults to the on_value dtype</span>
+<span class="sd">            or the off_value dtype. If both are None, defaults to float32.</span>
+<span class="sd">        key_chains</span>
+<span class="sd">            The key-chains to apply or not apply the method to. Default is None.</span>
+<span class="sd">        to_apply</span>
+<span class="sd">            If True, the method will be applied to key_chains, otherwise key_chains will</span>
+<span class="sd">            be skipped. Default is True.</span>
+<span class="sd">        prune_unapplied</span>
+<span class="sd">            Whether to prune key_chains for which the function was not applied. Default</span>
+<span class="sd">            is False.</span>
+<span class="sd">        map_sequences</span>
+<span class="sd">            Whether to also map method to sequences (lists, tuples). Default is False.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        ret</span>
+<span class="sd">            container with tensors of zeros with the same shape and type as the inputs,</span>
+<span class="sd">            unless dtype provided which overrides.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">ContainerBase</span><span class="o">.</span><span class="n">multi_map_in_static_method</span><span class="p">(</span>
+            <span class="s2">&quot;one_hot&quot;</span><span class="p">,</span>
+            <span class="n">indices</span><span class="p">,</span>
+            <span class="n">depth</span><span class="p">,</span>
+            <span class="n">on_value</span><span class="o">=</span><span class="n">on_value</span><span class="p">,</span>
+            <span class="n">off_value</span><span class="o">=</span><span class="n">off_value</span><span class="p">,</span>
+            <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span>
+            <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span>
+            <span class="n">key_chains</span><span class="o">=</span><span class="n">key_chains</span><span class="p">,</span>
+            <span class="n">to_apply</span><span class="o">=</span><span class="n">to_apply</span><span class="p">,</span>
+            <span class="n">prune_unapplied</span><span class="o">=</span><span class="n">prune_unapplied</span><span class="p">,</span>
+            <span class="n">map_sequences</span><span class="o">=</span><span class="n">map_sequences</span><span class="p">,</span>
+            <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="ContainerWithCreation.one_hot"><a class="viewcode-back" href="../../../data_classes/container/creation/ContainerWithCreation.html#ivy.container.creation.ContainerWithCreation.one_hot">[docs]</a>    <span class="k">def</span> <span class="nf">one_hot</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">:</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="p">,</span>
+        <span class="n">depth</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="o">/</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">on_value</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Number</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">off_value</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Number</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">axis</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">dtype</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Dtype</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeDtype</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">key_chains</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">to_apply</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">prune_unapplied</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">map_sequences</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">out</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        ivy.Container instance method variant of ivy.one_hot. This method</span>
+<span class="sd">        simply wraps the function, and so the docstring for ivy.one_hot</span>
+<span class="sd">        also applies to this method with minimal changes.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        self</span>
+<span class="sd">            Indices for where the ones should be scattered *[batch_shape, dim]*</span>
+<span class="sd">        depth</span>
+<span class="sd">            Scalar defining the depth of the one-hot dimension.</span>
+<span class="sd">        on_value</span>
+<span class="sd">            Value to fill in output when indices[j] == i. If None, defaults to 1.</span>
+<span class="sd">        off_value</span>
+<span class="sd">            Value to fill in output when indices[j] != i. If None, defaults to 0.</span>
+<span class="sd">        axis</span>
+<span class="sd">            Axis to scatter on. The default is -1, a new inner-most axis is created.</span>
+<span class="sd">        dtype</span>
+<span class="sd">            The dtype of the returned tensor. If None, defaults to the on_value dtype</span>
+<span class="sd">            or the off_value dtype. If both are None, defaults to float32.</span>
+<span class="sd">        key_chains</span>
+<span class="sd">            The key-chains to apply or not apply the method to. Default is None.</span>
+<span class="sd">        to_apply</span>
+<span class="sd">            If True, the method will be applied to key_chains, otherwise key_chains will</span>
+<span class="sd">            be skipped. Default is True.</span>
+<span class="sd">        prune_unapplied</span>
+<span class="sd">            Whether to prune key_chains for which the function was not applied. Default</span>
+<span class="sd">            is False.</span>
+<span class="sd">        map_sequences</span>
+<span class="sd">            Whether to also map method to sequences (lists, tuples). Default is False.</span>
+<span class="sd">        out</span>
+<span class="sd">            optional output container, for writing the result to. It must have a</span>
+<span class="sd">            shape that the inputs broadcast to.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        ret</span>
+<span class="sd">            container with tensors of zeros with the same shape and type as the inputs,</span>
+<span class="sd">            unless dtype provided which overrides.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">static_one_hot</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">depth</span><span class="p">,</span>
+            <span class="n">on_value</span><span class="o">=</span><span class="n">on_value</span><span class="p">,</span>
+            <span class="n">off_value</span><span class="o">=</span><span class="n">off_value</span><span class="p">,</span>
+            <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span>
+            <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span>
+            <span class="n">key_chains</span><span class="o">=</span><span class="n">key_chains</span><span class="p">,</span>
+            <span class="n">to_apply</span><span class="o">=</span><span class="n">to_apply</span><span class="p">,</span>
+            <span class="n">prune_unapplied</span><span class="o">=</span><span class="n">prune_unapplied</span><span class="p">,</span>
+            <span class="n">map_sequences</span><span class="o">=</span><span class="n">map_sequences</span><span class="p">,</span>
+            <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">,</span>
         <span class="p">)</span></div></div>
 </pre></div>
 

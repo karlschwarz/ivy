@@ -77,19 +77,19 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Data Classes</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="data_classes/container.html">Container</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_classes/array.html">Array</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_classes/container.html">Container</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Framework Classes</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="stateful/initializers.html">Initializers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stateful/converters.html">Converters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stateful/optimizers.html">Optimizers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stateful/module.html">Module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stateful/layers.html">Layers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stateful/norms.html">Norms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stateful/activations.html">Activations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stateful/sequential.html">Sequential</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stateful/activations.html">Activations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stateful/module.html">Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stateful/optimizers.html">Optimizers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stateful/norms.html">Norms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stateful/layers.html">Layers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stateful/initializers.html">Initializers</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Docs</span></p>
 <ul>
@@ -167,18 +167,22 @@ no globally set backend.</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<p>If no global backend is set, then the backend is inferred from the arguments:
-&gt;&gt;&gt; import numpy as np
-&gt;&gt;&gt; x = np.array([2.0])
-&gt;&gt;&gt; print(ivy.current_backend(x))
-&lt;module ‘ivy.functional.backends.numpy’ from ‘/ivy/ivy/functional/backends/numpy/__init__.py’&gt;   </p>
+<p>If no global backend is set, then the backend is inferred from the arguments:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">ivy</span><span class="o">.</span><span class="n">current_backend</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="go">&lt;module &#39;ivy.functional.backends.numpy&#39; from &#39;/ivy/ivy/functional/backends/numpy/__init__.py&#39;&gt;   </span>
+</pre></div>
+</div>
 <p>The global backend set in set_backend has priority over any arguments
-passed to current_backend:
-&gt;&gt;&gt; import numpy as np
-&gt;&gt;&gt; ivy.set_backend(“jax”)
-&gt;&gt;&gt; x = np.array([2.0])
-&gt;&gt;&gt; print(ivy.current_backend(x))
-&lt;module ‘ivy.functional.backends.jax’ from ‘/ivy/ivy/functional/backends/jax/__init__.py’&gt;   </p>
+passed to current_backend:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ivy</span><span class="o">.</span><span class="n">set_backend</span><span class="p">(</span><span class="s2">&quot;jax&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">ivy</span><span class="o">.</span><span class="n">current_backend</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="go">&lt;module &#39;ivy.functional.backends.jax&#39; from &#39;/ivy/ivy/functional/backends/jax/__init__.py&#39;&gt;   </span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -211,7 +215,7 @@ returns the Ivy backend associated with the current globally set backend.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>backend</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – The backend for which we want to retrieve Ivy’s backend i.e. one of ‘jax’, (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)
-‘torch’, ‘tensorflow’, ‘numpy’, ‘mxnet’.</p>
+‘torch’, ‘tensorflow’, ‘numpy’.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><em>ret</em> – Ivy’s backend for either <cite>backend</cite> or for the current global backend.</p>
@@ -274,11 +278,6 @@ to make the original function name to point to the version specific one</p></li>
 <dl class="py function">
 <dt class="sig sig-object py" id="ivy.backend_handler.try_import_ivy_jax">
 <span class="sig-prename descclassname"><span class="pre">ivy.backend_handler.</span></span><span class="sig-name descname"><span class="pre">try_import_ivy_jax</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">warn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ivy/backend_handler.html#try_import_ivy_jax"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy.backend_handler.try_import_ivy_jax" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="ivy.backend_handler.try_import_ivy_mxnet">
-<span class="sig-prename descclassname"><span class="pre">ivy.backend_handler.</span></span><span class="sig-name descname"><span class="pre">try_import_ivy_mxnet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">warn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ivy/backend_handler.html#try_import_ivy_mxnet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy.backend_handler.try_import_ivy_mxnet" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
